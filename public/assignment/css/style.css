@@ -1,3 +1,22 @@
+body{
+    padding-top: 80px;
+    /*color: #2b669a;*/
+    padding-bottom: 80px;
+}
+
+
+.navbar-header.navbar-fixed-top{
+    color: #2e6da4;
+}
+nav{
+    background-color: #2e6da4;
+}
+.navbar-brand{
+    color: white;
+}
+.white{
+    color: white;
+}
 input.form-control
 {
     margin-bottom: 5px;
