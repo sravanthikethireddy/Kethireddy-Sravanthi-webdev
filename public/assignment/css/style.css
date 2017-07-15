@@ -5,9 +5,9 @@ body{
 }
 
 
-.navbar-header.navbar-fixed-top{
-    color: #2e6da4;
-}
+/*.navbar-header.navbar-fixed-top{*/
+    /*color: #2e6da4;*/
+/*}*/
 nav{
     background-color: #2e6da4;
 }
@@ -21,3 +21,6 @@ input.form-control
 {
     margin-bottom: 5px;
 }
+/*li.boderless{*/
+    /*border-top: 0 none;*/
+/*}*/
