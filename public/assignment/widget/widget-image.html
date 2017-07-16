@@ -6,42 +6,48 @@
 user-scalable = no, initial-scale = 1.0, maximum-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet">
-    <title>New Page</title>
+    <title>Widget Image</title>
 
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="page-list.html">
-                <span class="glyphicon glyphicon-chevron-left">
+            <a href="widget-list.html">
+
+                <span class="glyphicon glyphicon-chevron-left black">
                 </span>
             </a>
-        </div>
 
+        </div>
         <div class="navbar-text pull-right">
-            <a href="page-list.html">
-                <span class="glyphicon glyphicon-ok"></span>
+            <a href="widget-list.html">
+                <span class="glyphicon glyphicon-ok black"></span>
             </a>
+        </div>
 
-        </div>
         <div class="navbar-header">
-            <a class="navbar-brand" href="page-list.html"><strong>New Page</strong></a>
+            <a class="navbar-brand" href="widget-list.html"><strong>Widget Edit</strong></a>
         </div>
+
+
 
     </div>
 </nav>
 <div class="container-fluid">
     <label for="name">Name</label>
-    <input type="text"
-           class="form-control"
-           id="name"
-    placeholder="Page Name">
-    <label for="title">Title</label>
-    <input type="text"
-    class="form-control"
-    id="title"
-    placeholder="Page Title">
+    <input class="form-control" type="text" id="name">
+    <label for="text">Text</label>
+    <input type="text" id="text" class="form-control">
+    <label for="url">URL</label>
+    <input class="form-control" type="text" id="url" placeholder="https://pixabay.com/en/aurora-northern-lights-589049/">
+    <label for="width">Width</label>
+    <input class="form-control" type="number" id="width" placeholder="100%">
+    <label for="upload">Upload</label>
+    <input class="form-control" id="upload" type="file" placeholder="No file chosen">
+    <a class="btn btn-primary btn-block" href="widget-list.html">Upload Image</a>
+    <a class="btn btn-danger btn-block" href="widget-list.html">Delete</a>
+
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">

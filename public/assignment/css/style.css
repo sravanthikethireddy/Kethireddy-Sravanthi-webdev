@@ -31,3 +31,14 @@ input.form-control
     /*border-left: solid;*/
     /*height: 800px;*/
 /*}*/
+.widget-toolbar{
+    position: absolute;
+    background-color: white;
+    right: 20px;
+    border-bottom-right-radius:3px ;
+    border-bottom-left-radius: 3px;
+}
+
+.black{
+    color: black;
+}
