@@ -1,0 +1,11 @@
+
+<div class="container-fluid" ng-controller="WidgetEditController">
+    <label for="name">Name</label>
+    <input ng-model="model.widget.name" class="form-control" type="text" id="name">
+    <label for="text">Text</label>
+    <input ng-model="model.widget.text" type="text" id="text" class="form-control" placeholder="Northern Lights(aurora borealis), nature's own theater">
+    <label for="size">Size</label>
+    <input ng-model="model.widget.size" class="form-control" type="number" placeholder="3" id="size">
+    <a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.widget)">Delete</a>
+
+</div>

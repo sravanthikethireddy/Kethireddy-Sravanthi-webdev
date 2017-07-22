@@ -1,37 +1,45 @@
 <!--<h1>Assignment to check </h1>-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WebAppMaker">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width
 user-scalable = no, initial-scale = 1.0, maximum-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    </head>
-<body  style="background:url('./User Pages/2.jpg')" >
-<div class="container-fluid" style="text-align: center; padding-top: 20px">
-    <!--<h1> <font color="#1e90ff"> Welcome to Web Development asssignments!</font></h1>-->
-    <button type="button" class="btn btn-link">
+    <link href="./css/style.css" rel="stylesheet">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>-->
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular/angular-route.js"></script>
 
-        <a href="./User%20Pages/login.html">
-            <!--<div style="text-align: center">-->
-            <font color="aqua" size="5">Assignment 2</font><br>
-            
-            <!--</div>-->
-        </a>
-        
-        
-    </button></br>
-    <button type="button" class="btn btn-link">
+    <!--<script src ="../vendor/angular/angular.js"></script>-->
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <title>Assignment</title>
+    <!--User Controllers-->
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.client.js"></script>
+    <!--Website Controllers-->
+    <script src="views/website/controllers/website-edit.controller.client.js"></script>
+    <script src="views/website/controllers/website-list.controller.client.js"></script>
+    <script src="views/website/controllers/website-new.controller.client.js"></script>
+    <!--Page Controllers-->
+    <script src="views/page/controllers/page-edit.controller.client.js"></script>
+    <script src="views/page/controllers/page-list.controller.client.js"></script>
+    <script src="views/page/controllers/page-new.controller.client.js"></script>
+    <!--Widget Controllres-->
+    <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-list.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-new.controller.client.js"></script>
 
-        <a href="./User%20Pages/login.html">
-            <!--<div style="text-align: center">-->
-            <font color="aqua" size="5">Assignment 3</font></br>
-            
-            <!--</div>-->
-        </a>
-        
-        
-    </button>
-</div>
+    <script src="services/page.service.client.js"></script>
+    <script src="services/user.service.client.js"></script>
+    <script src="services/website.service.client.js"></script>
+    <script src="services/widget.service.client.js"></script>
+</head>
+<body>
+<div ng-view></div>
 </body>
 </html>

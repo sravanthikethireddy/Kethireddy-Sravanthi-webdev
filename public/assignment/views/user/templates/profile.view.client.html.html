@@ -1,0 +1,66 @@
+
+<nav class="navbar navbar-normal navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="navbar-link" href="#/user/{{model.user._id}}">
+                <span class="glyphicon glyphicon-ok white">
+
+                </span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand"><strong>Profile</strong></a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <form>
+
+        <div class="form-group">
+            <label for="Username">Username</label>
+            <input ng-model="model.user.username"
+                    type="text"
+                   class="form-control"
+                   id="Username"
+                   placeholder="skCS5610">
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input ng-model="model.user.email"
+                    type="email"
+                   class="form-control"
+                   id="Email"
+                   placeholder="skCS5610@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="First Name">First Name</label>
+            <input ng-model = "model.user.firstName"
+                    type="text"
+                   class="form-control"
+                   id="First Name"
+                   placeholder="Sravanthi">
+        </div>
+        <div class="form-group">
+            <label for="Last Name">Last Name</label>
+            <input ng-model = "model.user.lastName"
+                    type="text"
+                   class="form-control"
+                   id="Last Name"
+                   placeholder="Kethireddy">
+        </div>
+    </form>
+    <a class="btn btn-primary btn-block"
+       href="#/user/{{model.user._id}}/website">Websites</a>
+    <a class="btn btn-danger btn-block"
+       href="#/login">Logout</a>
+</div>
+<nav class="navbar navbar-normal navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="#/user/{{model.user._id}}">
+                <span class="glyphicon glyphicon-user white">
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>
