@@ -46,3 +46,14 @@ input.form-control
 .ngclick{
  cursor: pointer;
 }
+
+.selector{
+    width: auto;
+    height:auto;
+}
+.gif-container {
+    background: url("/CS5610/neu/webdev/public/assignment/views/homepage/b2d4a353d922f7f1dd92594dbb0e129c.gif") center;
+    background-size: cover;
+
+    height: 100%;
+}
