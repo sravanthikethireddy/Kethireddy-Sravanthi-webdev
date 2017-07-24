@@ -5,28 +5,28 @@
     angular
         .module("WebAppMaker")
         .controller("PageNewController", PageNewController);
-    function PageNewController($routeParams, PageService, $Location) {
+    function PageNewController($routeParams, PageService, $location) {
         var vm = this;
         vm.userId = $routeParams['uid'];
         vm.websiteId = $routeParams['wid'];
         vm.pageId = $routeParams['pid'];
+        vm.addnewPage = addnewPage;
         function init() {
+
             vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
 
         }
-
         init();
-        vm.createPage = createPage;
-        function createPage(newPage) {
-            var success = PageService.createPage(vm.websiteId, newPage);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
-            if (success) {
-                vm.message = "Page created";
+        function addnewPage(page) {
+            var newPage = PageService.createPage(vm.websiteId, page);
+            if (newPage) {
                 init();
+                $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+                // vm.message = "Page created";
 
             }
             else {
-                vm.error = "Unable to create a page"
+                vm.error = "Unable to create a page";
             }
         }
     }

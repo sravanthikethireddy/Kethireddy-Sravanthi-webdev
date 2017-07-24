@@ -12,7 +12,7 @@
                 templateUrl: "views/homepage.html"
             })
             .when("/login", {
-                templateUrl: "views/user/templates/login.view.client.html.html",
+                templateUrl: "views/user/templates/login.view.client.html",
                 controller: "LoginController",
                 controllerAs: "model"
             })

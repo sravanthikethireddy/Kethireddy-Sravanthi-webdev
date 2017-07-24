@@ -1,37 +1,38 @@
-
-<nav class = "navbar navbar-normal navbar-fixed-top">
+<nav class="navbar navbar-normal navbar-fixed-top">
     <div class="container-fluid">
         <div class="col-sm-4 hidden-xs">
             <div class="navbar-text pull-left">
-                <a href="#/user/{{model.userId}}/website">
+                <a href="#!/user/{{model.userId}}/website">
                     <span class="glyphicon glyphicon-chevron-left white"></span>
                 </a>
             </div>
             <div class="navbar-header pull-left">
-                <a class="navbar-brand" href="#/user/{{model.userId}}/website">Websites</a>
+                <a class="navbar-brand" href="#!/user/{{model.userId}}/website"><strong>Websites</strong></a>
             </div>
             <div class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}/website/new">
+                <a href="#!/user/{{model.userId}}/website/new">
                     <span class="glyphicon glyphicon-plus white"></span>
                 </a>
             </div>
         </div>
         <div class="col-sm-8">
-        <div class="navbar-text pull-left visible-xs">
-            <a href=#/user/{{model.userId}}/website">
-                <span class="glyphicon glyphicon-chevron-left white"></span>
-            </a>
-        </div>
-        <div class="navbar-header pull-left">
-            <a class="navbar-brand" href="#/user/{{model.userId}}/website/new">New Website</a>
-        </div>
-        <div class="navbar-text pull-right">
-            <a ng-click="model.addWebsite(website)">
-                <span class="glyphicon glyphicon-ok white">
+            <div class="navbar-text pull-left visible-xs">
+                <a href=#!/user/{{model.userId}}/website">
+                    <span class="glyphicon glyphicon-chevron-left white"></span>
+                </a>
+            </div>
+            <div class="navbar-header pull-left">
+                <a class="navbar-brand" href="#!/user/{{model.userId}}/website/new"><strong>New Website</strong></a>
+            </div>
+            <div class="navbar-text pull-right">
+                <a class="ngclick" ng-click="model.createWebsite(website)">
+                    <!--href="#!/user/{{model.userId}}/website"-->
+
+                    <span class="glyphicon glyphicon-ok white">
 
                 </span>
-            </a>
-        </div>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -40,12 +41,12 @@
 <div class="container-fluid">
     <div class="col-sm-4 hidden-xs border-right">
         <ul class="list-group">
-            <li class="list-group-item" style="border: none">
-                <strong>Name</strong>
-            </li>
-            <li class="list-group-item" ng-repeat="website in model.websites">
-                <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">{{website.name}}</a>
-                <a href="#/user/{{model.userId}}/website/{{website._id}}">
+            <!--<li class="list-group-item" style="border: none">-->
+            <!--<strong>Name</strong>-->
+            <!--</li>-->
+            <li class="list-group-item" ng-repeat="website in model.websites" style="border: none">
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </li>
@@ -56,13 +57,13 @@
     <div class="col-sm-8 container-fluid">
         <label for="name">Name</label>
         <input ng-model="website.name"
-                class="form-control"
+               class="form-control"
                type="text"
                id="name"
                placeholder="Name">
         <label for="description">Description</label>
         <textarea ng-model="website.description"
-                class="form-control"
+                  class="form-control"
                   id="description"
                   placeholder="Description" required
                   rows="6"></textarea>
@@ -74,7 +75,7 @@
 <nav class="navbar navbar-normal navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.userId}}">
+            <a href="#!/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user white">
                 </span>
             </a>

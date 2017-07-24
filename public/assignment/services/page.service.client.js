@@ -23,9 +23,10 @@
         };
         return api;
         function createPage(websiteId, page) {
-            page._id = String(new Date().getTime());
-            page.developerId = websiteId;
+            page._id = new Date().getTime();
+            page.websiteId = websiteId;
             pages.push(page);
+            return page;
         }
 
         function findPageByWebsiteId(websiteId) {

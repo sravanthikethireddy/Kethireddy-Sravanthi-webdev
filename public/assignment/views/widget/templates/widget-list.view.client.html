@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
 
                 <span class="glyphicon glyphicon-chevron-left black">
                 </span>
@@ -9,13 +9,13 @@
 
         </div>
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
                 <span class="glyphicon glyphicon-plus black"></span>
             </a>
         </div>
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"><strong>Widgets</strong></a>
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"><strong>Widgets</strong></a>
         </div>
 
 
@@ -23,6 +23,16 @@
 </nav>
 
 <div class="container-fluid">
+<div ng-repeat="widget in model.widgets">
+    <div ng-switch="widget.widgetType">
+    <div class="widget-toolbar">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+            <span class="glyphicon glyphicon-cog">
+
+            </span>
+        </a>
+        <span class="glyphicon glyphicon-align-justify"></span>
+    </div>
     <div ng-switch-when="HEADER">
         <h1 ng-if="widget.size == 1">{{widget.text}}</h1>
         <h2 ng-if="widget.size == 2">{{widget.text}}</h2>
@@ -32,28 +42,30 @@
         <h6 ng-if="widget.size == 6">{{widget.text}}</h6>
     </div>
     <div ng-switch-when="IMAGE">
-        <img src="{{widget.url}}" width="100%">
+        <img ng-src="{{widget.url}}" width="{{widget.width}}">
     </div>
     <div ng-switch-when="YOUTUBE">
-        <iframe ng-src="{{model.doYouTrustUrl(widget.url)}}" width=100% height="480" allowfullscreen></iframe>
+        <iframe ng-src="{{model.doYouTrustUrl(widget.url)}}" width="{{widget.width}}" height="480" allowfullscreen></iframe>
     </div>
+    </div>
+</div>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                 <span class="glyphicon glyphicon-triangle-right black">
                 </span>
             </a>
         </div>
         <div class="navbar-text">
-            <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                 <span class="glyphicon glyphicon-eye-open black">
                 </span>
             </a>
         </div>
         <div class="navbar-text pull-right"> </br>
-            <a  href="#/user/{{model.userId}}">
+            <a  href="#!/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

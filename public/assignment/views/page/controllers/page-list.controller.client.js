@@ -14,6 +14,6 @@
             vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
         }
 
-        init()
+        init();
     }
 })();

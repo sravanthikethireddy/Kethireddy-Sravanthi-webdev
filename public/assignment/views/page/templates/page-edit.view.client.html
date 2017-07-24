@@ -2,20 +2,21 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
+            <!--<a href="#!/user/456/website/456/page/">-->
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
                 <span class="glyphicon glyphicon-chevron-left">
                 </span>
             </a>
         </div>
 
         <div class="navbar-text pull-right">
-            <a href=ng-click="model.updatePage(model.page)">
+            <a class="ngclick" ng-click="model.updatePage(model.page)">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
 
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand"><strong>Edit Page</strong></a>
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}"><strong>Edit Page</strong></a>
         </div>
 
     </div>
@@ -33,13 +34,13 @@
            class="form-control"
            id="title"
            placeholder="Page Title">
-    <a class="btn btn-block btn-danger" ng-click="model.deletePage()">Delete</a>
+    <a class="btn btn-block btn-danger"  ng-click="model.deletePage()">Delete</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a href="#/user/{{model.userId}}">
+            <a href="#!/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

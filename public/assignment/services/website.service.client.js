@@ -26,9 +26,10 @@
         };
         return api;
         function createWebsite(userId, website) {
-            website._id = String(new Date().getTime());
+            website._id = (new Date()).getTime();
             website.developerId = userId;
             websites.push(website);
+            return website;
         }
 
         function findWebsitesByUser(userId) {

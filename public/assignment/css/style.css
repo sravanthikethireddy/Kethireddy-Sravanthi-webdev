@@ -42,3 +42,7 @@ input.form-control
 .black{
     color: black;
 }
+
+.ngclick{
+ cursor: pointer;
+}

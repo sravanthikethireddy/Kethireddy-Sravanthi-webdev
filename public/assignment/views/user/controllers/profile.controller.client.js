@@ -6,7 +6,7 @@
         .module("WebAppMaker")
         .controller("ProfileController", ProfileController);
 
-    function ProfileController($routeParams, UserService, $Location) {
+    function ProfileController($routeParams, UserService, $location) {
         var vm = this;
         var userId = $routeParams['uid'];
         function init() {

@@ -34,7 +34,7 @@
         return api;
         function createWidget(pageId, type) {
             var widget = {
-                    "._id": String(new Date().getTime()),
+                    "._id": (new Date()).getTime(),
                     "pageId": pageId,
                     "widgetType": type
                 }

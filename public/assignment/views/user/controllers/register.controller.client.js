@@ -5,20 +5,27 @@
     angular
         .module("WebAppMaker")
         .controller("RegisterController",RegisterController);
-    function RegisterController($Location, UserService) {
+    function RegisterController($location, UserService) {
         var vm = this;
         vm.register = register;
+        function init() {
+
+        }
+        init();
         function register(user) {
             var newUser = UserService.findUserByUsername(user.username);
-            if (newUser){
-                vm.error="Username already exists!";
+            if(newUser){
+            vm.error="Username already exists!";
             }
             else {
-                newUser=UserService.createUser(user);
-                if(newUser){
-                    $Location.url("/profile/",newUser._id)
-                }
+            newUser=UserService.createUser(user);
+            if(newUser){
+                $location.url("/profile/"+user._id);
+            }else {
+                vm.error="Registration failed"
             }
+            }
+
         }
-    }
-})();
+        }
+        })();
