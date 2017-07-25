@@ -16,7 +16,7 @@
             vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
         }
 
-        init()
+        init();
         vm.doYouTrustUrl = doYouTrustUrl;
 
         function doYouTrustUrl(url) {

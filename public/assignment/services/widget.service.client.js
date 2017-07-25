@@ -73,8 +73,8 @@
         function updateWidget(widgetId, widget) {
             for (var w in widgets) {
                 if (widgets[w]._id === widgetId) {
-                    widgets[w].name = newSite.name;
-                    widgets[w].description = newSite.description;
+                    widgets[w].name = widget.name;
+                    widgets[w].description = widget.description;
                 }
             }
         }

@@ -22,19 +22,24 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    <div ng-switch="model.widget.widgetType">
+<!--<div class="container-fluid">-->
+    <!--<h1>teeext</h1>-->
+    <div ng-switch="widget.widgetType">
+        <!--<h1>tesst</h1>-->
         <div ng-switch-when="HEADER">
-            <ng-include src="'views/widget/widget-heading.view.client.html'"/>
+            <!--<a href="widget-heading.view.client.html"></a>-->
+            <div ng-include="'views/widget/templates/widget-heading.view.client.html'"></div>
         </div>
         <div ng-switch-when="IMAGE">
-            <ng-include src="'views/widget/widget-image.view.client.html'"/>
+
+            <div ng-include="'views/widget/templates/widget-image.view.client.html'"></div>
         </div>
         <div ng-switch-when="YOUTUBE">
-            <ng-include src="'views/widget/widget-youtube.view.client.html'"/>
+            <div ng-include="'views/widget/templates/widget-youtube.view.client.html'"></div>
         </div>
     </div>
-</div>
+<!--</div>-->
+<!--<h1>test</h1>-->
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
