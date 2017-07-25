@@ -10,16 +10,16 @@
         vm.userId=$routeParams['uid'];
         vm.pageId=$routeParams['pid'];
         vm.websiteId=$routeParams['wid'];
-        vm.wgID=$routeParams['wgid'];
+        vm.widgetId=$routeParams['wgid'];
         function init() {
             vm.widgets=WidgetService.findWidgetsByPageId(vm.pageId);
-            vm.widget=WidgetService.findWidgetById(vm.wgID);
+            vm.widget=WidgetService.findWidgetById(vm.widgetId);
         }
         init();
         vm.updateWidget=updateWidget;
         vm.deleteWidget=deleteWidget;
         function updateWidget() {
-            var w = WidgetService.updateWidget(vm.wgID,vm.widget);
+            var w = WidgetService.updateWidget(vm.widgetId,widget);
             if (w){
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
             }
@@ -28,7 +28,7 @@
             }
         }
         function deleteWidget() {
-            var w = WidgetService.deleteWidget(vm.wgID);
+            var w = WidgetService.deleteWidget(vm.widgetId);
             if (w){
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
             }

@@ -1,16 +1,17 @@
 
-<div class="container-fluid" ng-controller="WidgetEditController">
-    <label for="name">Name</label>
-    <input ng-model="model.widget.name" class="form-control" type="text" id="name">
-    <label for="text">Text</label>
-    <input ng-model="model.widget.text" type="text" id="text" class="form-control">
-    <label for="url">URL</label>
-    <input ng-model="model.widget.url" class="form-control" type="text" id="url" placeholder="https://pixabay.com/en/aurora-northern-lights-589049/">
-    <label for="width">Width</label>
-    <input ng-model="model.widget.width" class="form-control" type="number" id="width" placeholder="100%">
-    <label for="upload">Upload</label>
-    <input ng-model="model.widget.upload" class="form-control" id="upload" type="file" placeholder="No file chosen">
-    <a class="btn btn-primary btn-block" href="#">Upload Image</a>
-    <a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.widget)">Delete</a>
+<!--<div class="container-fluid" ng-controller="WidgetEditController">-->
+    <!--<label for="name">Name</label>-->
+    <!--<input ng-model="model.widget.name" class="form-control" type="text" id="name">-->
+    <!--<label for="text">Text</label>-->
+    <!--<input ng-model="model.widget.text" type="text" id="text" class="form-control">-->
+    <!--<label for="url">URL</label>-->
+    <!--<input ng-model="model.widget.url" class="form-control" type="text" id="url" placeholder="https://pixabay.com/en/aurora-northern-lights-589049/">-->
+    <!--<label for="width">Width</label>-->
+    <!--<input ng-model="model.widget.width" class="form-control" type="number" id="width" placeholder="100%">-->
+    <!--<label for="upload">Upload</label>-->
+    <!--<input ng-model="model.widget.upload" class="form-control" id="upload" type="file" placeholder="No file chosen">-->
+    <!--<a class="btn btn-primary btn-block" href="#">Upload Image</a>-->
+    <!--<a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.widget)">Delete</a>-->
 
-</div>
+<!--</div>-->
+<img ng-src="{{widget.url}}" width="{{widget.width}}">

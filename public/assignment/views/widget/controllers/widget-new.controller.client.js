@@ -11,18 +11,24 @@
         vm.userId = $routeParams['uid'];
         vm.pageId = $routeParams['pid'];
         vm.websiteId = $routeParams['wid'];
+        vm.widgetId = $routeParams['wgid'];
         // vm.addWidget = addWidget;
         vm.createWidget = createWidget;
 
         function init() {
-            vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId)
+            vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
+            vm.widget = WidgetService.findWidgetById(vm.widgetId);
         }
 
         init();
 
-        function createWidget(widget) {
-            var w = WidgetService.createWidget(vm.pageId, widget);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget/' + w._id);
+        function createWidget(pageId, widgetType) {
+            var widget = {};
+            widget.widgetType = widgetType;
+            widget.editing = true;
+            var w = WidgetService.createWidget(vm.pageId, widget)._id;
+            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget/' + w);
         }
+
     }
 })();
