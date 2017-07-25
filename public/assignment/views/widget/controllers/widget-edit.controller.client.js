@@ -18,7 +18,7 @@
         init();
         vm.updateWidget=updateWidget;
         vm.deleteWidget=deleteWidget;
-        function updateWidget() {
+        function updateWidget(widget) {
             var w = WidgetService.updateWidget(vm.widgetId,widget);
             if (w){
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
@@ -27,7 +27,7 @@
                 vm.error = "Unable to update widget"
             }
         }
-        function deleteWidget() {
+        function deleteWidget(widgetId) {
             var w = WidgetService.deleteWidget(vm.widgetId);
             if (w){
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");

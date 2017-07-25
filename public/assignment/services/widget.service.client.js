@@ -38,7 +38,7 @@
             widget.pageId=pageId;
             widgets.push(widget);
 
-            return widget;
+            return widget._id;
         }
 
         function findWidgetsByPageId(pageId) {

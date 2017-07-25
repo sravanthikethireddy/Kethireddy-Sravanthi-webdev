@@ -22,11 +22,11 @@
 
         init();
 
-        function createWidget(pageId, widgetType) {
+        function createWidget(widgetType) {
             var widget = {};
             widget.widgetType = widgetType;
             widget.editing = true;
-            var w = WidgetService.createWidget(vm.pageId, widget)._id;
+            var w = WidgetService.createWidget(vm.pageId, widget);
             $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget/' + w);
         }
 

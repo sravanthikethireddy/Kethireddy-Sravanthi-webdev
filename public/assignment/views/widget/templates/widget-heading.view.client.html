@@ -9,6 +9,7 @@
     <!--<a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.widget)">Delete</a>-->
 
 <!--</div>-->
+<div class="container-fluid">
 <div ng-model="model.widget.size" ng-switch="widget.size">
     <!--<div ng-include="'views/widget/templates/widget-heading.view.client.html'"></div>-->
     <h1 ng-switch-when="1">{{widget.text}}</h1>
@@ -17,4 +18,5 @@
     <h1 ng-switch-when="4">{{widget.text}}</h1>
     <h1 ng-switch-when="5">{{widget.text}}</h1>
     <h1 ng-switch-when="6">{{widget.text}}</h1>
+</div>
 </div>
