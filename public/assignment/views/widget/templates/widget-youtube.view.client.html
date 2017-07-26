@@ -1,19 +1,4 @@
-
-<!--<div class="container-fluid" ng-controller=WidgetEditController">-->
-    <!--<label for="name">Name</label>-->
-    <!--<input ng-model="model.widget.name" class="form-control" type="text" id="name">-->
-    <!--<label for="text">Text</label>-->
-    <!--<input ng-model="model.widget.text" type="text" id="text" class="form-control">-->
-    <!--<label for="url">URL</label>-->
-    <!--<input ng-model="model.widget.url" class="form-control" type="text" id="url" placeholder="https://www.youtube.com/watch?v=1DXHE4kt3Fw">-->
-    <!--<label for="width">Width</label>-->
-    <!--<input ng-model="model.widget.width"class="form-control" type="number" id="width">-->
-
-    <!--&lt;!&ndash;<a class="btn btn-primary btn-block" href="widget-list.html">Upload Image</a>&ndash;&gt;-->
-    <!--<a class="btn btn-danger btn-block" ng-click="model.deleteWidget(model.widget)">Delete</a>-->
-
-<!--</div>-->
 <div class="container-fluid">
-<iframe ng-src="{{model.doYouTrustUrl(widget.url)}}" width="{{widget.width}}" height="480"
-        allowfullscreen></iframe>
+    <iframe ng-src="{{model.doYouTrustUrl(widget.url)}}" width="{{widget.width}}" height="480"
+            allowfullscreen></iframe>
 </div>

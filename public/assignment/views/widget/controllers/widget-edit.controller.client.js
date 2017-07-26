@@ -11,30 +11,32 @@
         vm.pageId=$routeParams['pid'];
         vm.websiteId=$routeParams['wid'];
         vm.widgetId=$routeParams['wgid'];
+        vm.widgetUpdate=widgetUpdate;
+        vm.widgetDelete=widgetDelete;
         function init() {
             vm.widgets=WidgetService.findWidgetsByPageId(vm.pageId);
             vm.widget=WidgetService.findWidgetById(vm.widgetId);
         }
         init();
-        vm.updateWidget=updateWidget;
-        vm.deleteWidget=deleteWidget;
-        function updateWidget(widget) {
+
+        function widgetUpdate(widget) {
+            console.log("hi")
             var w = WidgetService.updateWidget(vm.widgetId,widget);
-            if (w){
+            // if (w){
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
-            }
-            else {
-                vm.error = "Unable to update widget"
-            }
+            // }
+            // else {
+            //     vm.error = "Unable to update widget"
+            // }
         }
-        function deleteWidget(widgetId) {
-            var w = WidgetService.deleteWidget(vm.widgetId);
-            if (w){
+        function widgetDelete(widgetId) {
+            var w = WidgetService.deleteWidget(widgetId);
+            // if (w){
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
-            }
-            else {
-                vm.error = "Unable to delete widget"
-            }
+            // }
+            // else {
+            //     vm.error = "Unable to delete widget"
+            // }
         }
     }
 })();

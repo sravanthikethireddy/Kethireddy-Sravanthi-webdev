@@ -11,13 +11,13 @@
         vm.userId = $routeParams['uid'];
         vm.pageId = $routeParams['pid'];
         vm.websiteId = $routeParams['wid'];
+        vm.doYouTrustUrl = doYouTrustUrl;
 
         function init() {
             vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
         }
 
         init();
-        vm.doYouTrustUrl = doYouTrustUrl;
 
         function doYouTrustUrl(url) {
             var u = "https://www.youtube.com/embed/";

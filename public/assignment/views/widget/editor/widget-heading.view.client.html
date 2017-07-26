@@ -1,0 +1,24 @@
+<!--<div class="navbar-text pull-right">-->
+    <!--<a class="ngclick" ng-click="updateWidget(model.widgetId,widget)">-->
+                <!--<span class="glyphicon glyphicon-ok black">-->
+                <!--</span>-->
+    <!--</a>-->
+<!--</div>-->
+<div class="container-fluid">
+    <label for="name">Name</label>
+    <input ng-model="model.widget.name"
+           id = "name"
+           class="form-control"
+           placeholder=" "/>
+    <label for="text">Text</label>
+    <input ng-model="model.widget.text"
+           type="text"
+           id="text"
+           class="form-control"
+           placeholder="Northern Lights(aurora borealis), nature's own theater">
+
+    <label for="size">Size</label>
+    <input ng-model="model.widget.size" class="form-control" type="number" placeholder="3" id="size">
+
+    <a ng-click="model.widgetDelete(model.widgetId)" class="btn btn-block btn-danger">Delete</a>
+</div>
