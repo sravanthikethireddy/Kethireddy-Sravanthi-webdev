@@ -37,7 +37,7 @@
 
         return api;
         function createWidget(pageId, widget) {
-            widget._id=(new Date()).getTime();
+            widget._id=(new Date()).getTime() + "";
 
             widget.pageId=pageId;
             widgets.push(widget);
@@ -59,16 +59,16 @@
         }
 
         function findWidgetById(widgetId) {
-            // for (var w in widgets) {
-            //     // var Widget = Widgets[w];
-            //     if (widgets[w]._id === widgetId) {
-            //         return angular.copy(widgets[w]);
-            //     }
-            // }
-            // return null;
-            return widgets.find(function (widget) {
-                return widget._id===widgetId;
-            });
+            for (var w in widgets) {
+                // var Widget = Widgets[w];
+                if (widgets[w]._id === widgetId) {
+                    return angular.copy(widgets[w]);
+                }
+            }
+            return null;
+            // return widgets.find(function (widget) {
+            //     return widget._id===widgetId;
+            // });
 
         }
 
@@ -123,7 +123,7 @@
         function createWidgetHeader(pageId,widget) {
             widget = { "_id": "", "widgetType": "HEADING", "pageId": "", "size": "", "text": "", "name": ""};
             // widget={};
-            widget._id = (new Date()).getTime();
+            widget._id = (new Date()).getTime()+"";
             widget.pageId=pageId;
             widgets.push(widget);
             return widget._id
@@ -131,7 +131,7 @@
         function createWidgetImage(pageId,widget) {
             console.log("chech")
             widget = { "_id": "", "widgetType": "IMAGE", "pageId": "", "width": "", "url": "", "text": "", "name": "" };
-            widget._id = (new Date()).getTime();
+            widget._id = (new Date()).getTime()+"";
             widget.pageId=pageId;
             widgets.push(widget);
             return widget._id
@@ -139,7 +139,7 @@
         function createWidgetYouTube(pageId,widget) {
             console.log("check")
             widget = { "_id": "", "widgetType": "YOUTUBE", "pageId": "", "width": "", "url": "", "text": "", "name": ""};
-            widget._id = (new Date()).getTime();
+            widget._id = (new Date()).getTime()+"";
             widget.pageId=pageId;
             widgets.push(widget);
             return widget._id
