@@ -13,19 +13,19 @@
         }
         init();
         function register(user) {
-            var newUser = UserService.findUserByUsername(user.username);
-            if(newUser){
-            vm.error="Username already exists!";
-            }
-            else {
-            newUser=UserService.createUser(user);
-            if(newUser){
-                $location.url("/profile/"+user._id);
-            }else {
-                vm.error="Registration failed"
-            }
-            }
-
+            userService.findUserByUsername(user.username)
+                .then(function (response) {
+                    var _user = response.data;
+                    if(_user === "0") {
+                        return userService.registerUser(user)
+                    } else {
+                        model.error = "User already exists";
+                    }
+                })
+                .then(function (response) {
+                    _user = response.data;
+                    $location.url("/profile/" + _user._id);
+                });
         }
-        }
-        })();
+    }
+})();

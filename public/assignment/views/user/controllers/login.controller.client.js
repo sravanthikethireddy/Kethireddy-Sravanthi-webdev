@@ -8,27 +8,27 @@
     function LoginController($location, UserService) {
         var vm = this;
         vm.login = login;
-        // function init() {
-        //
-        // }
-        // init();
-        function login(user) {
-            // if(user===null){
-            //     vm.error="Invalid user name";
-            //     return;
-            // }
-            // if(password===null){
-            //     vm.error="Invalid password";
-            //     return;
-            // }
-            user = UserService.findUserByCredentials(user.username,user.password);
-            if(user){
-                $location.url("/user/"+user._id);
+        function init() {
 
+        }
+        init();
+
+        function login(user) {
+            if(!user) {
+                model.errorMessage = "User not found";
+                return;
             }
-            else {
-                vm.error="Invalid credentials!"
-            }
+            var promise = UserService.findUserByCredentials(user.username, user.password);
+            promise
+                .then(function (response) {
+                    user = response.data;
+                    if(user === null) {
+                        model.errorMessage = "User not found";
+                    } else {
+                        // $rootScope.currentUser = user;
+                        $location.url("/user/"+user._id);
+                    }
+                });
         }
     }
 })();

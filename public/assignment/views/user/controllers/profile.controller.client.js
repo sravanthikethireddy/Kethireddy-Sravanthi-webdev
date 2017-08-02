@@ -9,10 +9,30 @@
     function ProfileController($routeParams, UserService, $location) {
         var vm = this;
         var userId = $routeParams['uid'];
+        vm.updateUser = updateUser;
+        vm.unregister = unregister;
+        vm.userId = userId;
+
         function init() {
-            vm.user = UserService.findUserById(userId)
+            UserService.findUserById(userId)
+                .then(function (response) {
+                    vm.user = response.data;
+                });
+        }
+        init();
+
+        function updateUser(user) {
+            UserService.updateUser(userId, user)
+                .then(function () {
+                    vm.message='';
+                });
         }
 
-        init()
+        function unregister() {
+            UserService.deleteUser(user._id)
+                .then(function () {
+                    $location.url("/login");
+                });
+        }
     }
 })();

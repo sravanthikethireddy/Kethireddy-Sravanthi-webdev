@@ -13,7 +13,7 @@
         vm.addnewPage = addnewPage;
         function init() {
 
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+            vm.pages = PageService.findAllPagesByWebsiteId(vm.websiteId);
 
         }
         init();

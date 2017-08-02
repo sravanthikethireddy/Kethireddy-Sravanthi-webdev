@@ -16,15 +16,15 @@
 
         function init() {
             vm.page = PageService.findPageById(vm.pageId);
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+            vm.pages = PageService.findAllPagesByWebsiteId(vm.websiteId);
         }
 
         init();
 
         function updatePage(newPage) {
             var success = PageService.updatePage(vm.pageId, newPage);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
             if (success) {
+                $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
                 vm.message = "Page updated";
             }
             else {
