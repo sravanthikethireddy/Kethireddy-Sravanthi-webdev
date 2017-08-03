@@ -17,7 +17,7 @@
 <div class="container-fluid">
     <ul class="list-group">
         <li class="list-group-item"  style="border: none">
-            <a class="ngclick" ng-click="model.createWidget(widget)">Header</a>
+            <a class="ngclick" ng-click="model.createWidget(model.pageId,'HEADER')">Header</a>
         </li>
         <li class="list-group-item"  style="border: none">
             <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">Label</a>
@@ -32,10 +32,10 @@
             <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">Button</a>
         </li>
         <li class="list-group-item"  style="border: none">
-            <a class="ngclick" ng-click="model.createWidget(widget)">Image</a>
+            <a class="ngclick" ng-click="model.createWidget(model.pageId,'IMAGE')">Image</a>
         </li>
         <li class="list-group-item"  style="border: none">
-            <a class="ngclick" ng-click="model.createWidget(widget)">YouTube</a>
+            <a class="ngclick" ng-click="model.createWidget(model.pageId,'YOUTUBE')">YouTube</a>
         </li>
         <li class="list-group-item"  style="border: none">
             <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">Data Table</a>

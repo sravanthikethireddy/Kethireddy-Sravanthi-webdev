@@ -1,68 +1,39 @@
 <nav class="navbar navbar-normal navbar-fixed-top">
     <div class="container-fluid">
-        <div class="col-sm-4 hidden-xs">
-
-
-            <div class="navbar-text pull-left">
-
-                <a class="ngclick" ng-click="model.back()">
-
-                    <span class="glyphicon glyphicon-chevron-left white"></span>
-                </a>
+            <div class="col-sm-4">
+                <div class="navbar-text pull-left">
+                    <a href="#!/user/{{model.userId}}/website">
+                        <span class="glyphicon glyphicon-chevron-left white"></span>
+                    </a>
+                </div>
+                <div class="hidden-sm hidden-xs">
+                    <div class="navbar-text pull-right">
+                        <a href="#!/user/{{model.userId}}/website/new">
+                            <span class="glyphicon glyphicon-plus white"></span>
+                        </a>
+                    </div>
+                    <a class="navbar-brand">
+                        <b>Websites</b>
+                    </a>
+                </div>
             </div>
-            <div class="navbar-header pull-left">
-                <a class="navbar-brand" href="#!/user/{{model.userId}}/website">Websites</a>
+            <div class="col-sm-8">
+                <div class="navbar-text pull-right">
+                    <a ng-click="model.updateWebsite(model.website)">
+                        <span class="glyphicon glyphicon-ok white"></span>
+                    </a>
+                </div>
+                <a class="navbar-brand pull-left"><b>Edit Website</b></a>
             </div>
-            <div class="navbar-text pull-right">
-                <a href="#!/user/{{model.userId}}/website/new">
-                    <span class="glyphicon glyphicon-plus white"></span>
-                </a>
-
-            </div>
-
-
         </div>
-        <!--<div class="col-sm-8">-->
-            <!--<div class="navbar-text pull-left visible-xs">-->
-                <!--<a href="#!/user/{{model.userId}}/website">-->
-                    <!--<span class="glyphicon glyphicon-chevron-left white"></span>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-header pull-left">-->
-                <!--<a class="navbar-brand">Edit Website</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-text pull-right">-->
-                <!--<a class="ngclick" ng-click="model.updateWebsite(model.website)" role="button">-->
-                    <!--&lt;!&ndash;href="#!/user/{{model.userId}}/website">&ndash;&gt;-->
-                <!--<span class="glyphicon glyphicon-ok white pull-right">-->
-
-                <!--</span>-->
-                <!--</a>-->
-            <!--</div>-->
-        <!--</div>-->
-        <div class="col-sm-8">
-            <div class="navbar-text">
-                <a ng-click="model.updateWebsite(model.website)">
-                    <span class="glyphicon glyphicon-ok white pull-right">
-
-                    </span>
-                </a>
-            </div>
-            <a class="navbar-brand pull left">
-                Edit Website
-            </a>
-        </div>
-    </div>
-
 </nav>
-
 <div class="container-fluid">
     <!--<div class="verticalLine">-->
     <div class="col-sm-4 hidden-xs border-right" style="border: none">
         <ul class="list-group" style="border: none">
             <!--xcvbnm,-->
             <li class="list-group-item" ng-repeat="website in model.websites" style="border: none">
-                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">{{website.name}}</a>
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
                 <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
@@ -72,32 +43,32 @@
         <!--</div>-->
     </div>
     <!--<div class="verticalLine">-->
-        <div class="col-sm-8">
-            <form>
-                <div class="form-group">
-                    <label for="name">Website Name</label>
-                    <input ng-model="model.website.name"
-                            class="form-control"
-                           type="text"
-                           id="name"
-                           placeholder="Blogger">
-                </div>
-                <div class="form-group">
-                    <label for="description">Website Description</label>
-                    <textarea ng-model="model.website.description"
-                            class="form-control"
+    <div class="col-sm-8">
+        <form>
+            <div class="form-group">
+                <label for="name">Website Name</label>
+                <input ng-model="model.website.name"
+                       class="form-control"
+                       type="text"
+                       id="name"
+                       placeholder="Blogger">
+            </div>
+            <div class="form-group">
+                <label for="description">Website Description</label>
+                <textarea ng-model="model.website.description"
+                          class="form-control"
 
-                              id="description"
-                              placeholder="Description"
+                          id="description"
+                          placeholder="Description"
 
-                              rows="6">
+                          rows="6">
                     </textarea>
-                </div>
-            </form>
-            <a class="btn btn-danger btn-block" ng-click="model.deleteWebsite()"
-               >Delete</a>
-            <!--<textarea placeholder="check">  </textarea>-->
-        </div>
+            </div>
+        </form>
+        <a class="btn btn-danger btn-block" ng-click="model.deleteWebsite()"
+        >Delete</a>
+        <!--<textarea placeholder="check">  </textarea>-->
+    </div>
     <!--</div>-->
 
 </div>

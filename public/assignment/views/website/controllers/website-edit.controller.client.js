@@ -8,8 +8,8 @@
 
     function WebsiteEditController($routeParams, WebsiteService, $location) {
         var model = this;
-        model.userId = $routeParams['userId'];
-        model.websiteId = $routeParams['websiteId'];
+        model.userId = $routeParams['uid'];
+        model.websiteId = $routeParams['wid'];
 
         function init() {
             model.websites = WebsiteService.findAllWebsitesForUser(model.userId);

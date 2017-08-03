@@ -1,54 +1,71 @@
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+<!--<div class="container-fluid">-->
+<!--<div class="navbar-text">-->
+<!--&lt;!&ndash;<a href="#!/user/456/website/456/page/">&ndash;&gt;-->
+<!--<a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">-->
+<!--<span class="glyphicon glyphicon-chevron-left pull-left">-->
+<!--&lt;!&ndash;<a class="navbar-brand pull-left"><b>Edit Page</b></a>&ndash;&gt;-->
+<!--</span>-->
+<!--</a>-->
+<!--<span class="navbar-brand"><b>Edit Page</b></span>-->
+<!--<a class="ngclick" ng-click="model.updatePage(model.page)">-->
+<!--<span class="glyphicon glyphicon-ok pull-right"></span>-->
+<!--</a>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;<div class="navbar-text pull-right">&ndash;&gt;-->
+
+
+<!--</div>-->
+<!--&lt;!&ndash;<div class="navbar-header">&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}"><strong>Pages</strong></a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</nav>-->
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <div class="navbar-text pull-left">
-            <!--<a href="#!/user/456/website/456/page/">-->
-            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
-                <span class="glyphicon glyphicon-chevron-left">
-                </span>
+        <div class="row">
+            <!--<div class="col-sm-4">-->
+            <div class="navbar-text pull-left">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+
+            <!--<div class="col-sm-8">-->
+            <div class="navbar-text pull-right">
+                <a ng-click="model.updatePage(model.page)">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+            <a class="navbar-brand pull-left">
+                <b>Edit Page</b>
             </a>
-        </div>
+            <!--</div>-->
 
-        <div class="navbar-text pull-right">
-            <a class="ngclick" ng-click="model.updatePage(model.page)">
-                <span class="glyphicon glyphicon-ok"></span>
-                <a class="navbar-brand pull-left">Edit Page</a>
-            </a>
-
+            <!--</div>-->
         </div>
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}"><strong>Pages</strong></a>
-        </div>
-
     </div>
 </nav>
+
+
 <div class="container-fluid">
-    <div class="col-sm-4 hidden-sm">
-        <ul class="list-group">
-            <li class="list-group-item"><strong>Name</strong></li>
-            <li class="list-group-item" ng-repeat="page in model.pages">
-                <a href = "#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
-                    {{page.name}}
-                </a>
-                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
-                    <span class="glyphicon glyphicon-cog white pull-right"></span>
-                </a>
-            </li>
-        </ul>
-    </div>
     <label for="name">Name</label>
     <input ng-model="model.page.name"
-            type="text"
+           type="text"
            class="form-control"
            id="name"
            placeholder="Page Name">
     <label for="title">Title</label>
-    <input ng-model = "model.page.description"
-            type="text"
+    <input ng-model="model.page.description"
+           type="text"
            class="form-control"
            id="title"
            placeholder="Page Title">
-    <a class="btn btn-block btn-danger"  ng-click="model.deletePage()">Delete</a>
+    <a class="btn btn-block btn-danger" ng-click="model.deletePage()">Delete</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

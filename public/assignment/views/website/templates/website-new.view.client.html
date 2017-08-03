@@ -25,7 +25,7 @@
                 <a class="navbar-brand" href="#!/user/{{model.userId}}/website/new"><strong>New Website</strong></a>
             </div>
             <div class="navbar-text pull-right">
-                <a class="ngclick" ng-click="model.createWebsite(website)">
+                <a class="ngclick" ng-click="model.createWebsite(model.userId,model.website)">
                     <!--href="#!/user/{{model.userId}}/website"-->
 
                     <span class="glyphicon glyphicon-ok white">
@@ -56,13 +56,13 @@
     </div>
     <div class="col-sm-8 container-fluid">
         <label for="name">Name</label>
-        <input ng-model="website.name"
+        <input ng-model="model.website.name"
                class="form-control"
                type="text"
                id="name"
                placeholder="Name">
         <label for="description">Description</label>
-        <textarea ng-model="website.description"
+        <textarea ng-model="model.website.description"
                   class="form-control"
                   id="description"
                   placeholder="Description" required

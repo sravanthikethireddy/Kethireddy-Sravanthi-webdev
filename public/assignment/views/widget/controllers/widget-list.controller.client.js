@@ -12,12 +12,13 @@
         model.pageId = $routeParams['pid'];
         model.websiteId = $routeParams['wid'];
         model.doYouTrustUrl = doYouTrustUrl;
+        model.sortWidget = sortWidget;
 
         function init() {
             WidgetService
                 .findWidgetsByPageId(model.pageId)
-                .then(function (widgets) {
-                    model.widgets = widgets;
+                .then(function (response) {
+                    model.widgets = response.data;
                 });
         }
 
@@ -29,6 +30,11 @@
             var id = p[p.length - 1];
             u += id;
             return $sce.trustAsResourceUrl(u);
+        }
+
+        function sortWidget(initial, final) {
+            WidgetService
+                .sortWidget(model.pageId, initial, final)
         }
 
     }

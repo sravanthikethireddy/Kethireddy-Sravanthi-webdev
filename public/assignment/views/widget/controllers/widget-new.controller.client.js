@@ -22,12 +22,32 @@
         //
         // init();
 
-        function createWidget(widget) {
+        function createWidget(pageId, widgetType) {
+            var widget = {};
+            widget.widgetType = widgetType;
+            switch (widgetType) {
+                case "HEADER":
+                    widget.size = 5;
+                    widget.text = "Heading";
+                    break;
+                case "HTML":
+                    widget.text="html";
+                    break;
+                case "IMAGE":
+                    widget.width="100%";
+                    widget.url="http://lorempixel.com/400/200";
+                    break;
+                case "YOUTUBE":
+                    widget.width="100%";
+                    widget.url='http://lorempixel.com/400/200';
+                    break;
+
+            }
             WidgetService
-                .createWidget(model.pageId, widget)
-                .then(function (w_id) {
-                    // var w_id = widgetId;
-                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget/' + w_id);
+                .createWidget(pageId, widget)
+                .then(function (response) {
+                    var wid = response.data;
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget/' + wid._id);
                 });
         }
 

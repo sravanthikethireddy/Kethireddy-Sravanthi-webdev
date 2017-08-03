@@ -15,15 +15,15 @@
         function init() {
             WebsiteService
                 .findAllWebsitesForUser(model.userId)
-                .then(function (websites) {
-                    model.websites = websites;
+                .then(function (response) {
+                    model.websites = response.data;
                 });
 
         }
 
         init();
 
-        function createWebsite(website) {
+        function createWebsite(userId,website) {
             // var newWebsite = WebsiteService.createWebsite(model.userId, website);
             // if (newWebsite) {
                 // $location.url("/user/" + model.userId + "/website");
@@ -31,10 +31,10 @@
             // }
             WebsiteService
                 .createWebsite(userId, website)
-                .then(function (website) {
+                .then(function () {
                     $location.url("/user/" + model.userId + "/website");
 
-                })
+                });
         }
     }
 })();

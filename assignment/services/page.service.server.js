@@ -34,10 +34,13 @@ module.exports = function(app){
 
     function findPageById(req, res) {
         var pageId = req.params.pageId;
-        var page = pages.find(function (p) {
-            return p._id === pageId;
-        });
-        res.json(page);
+        for(var p in pages){
+            if(pages[p]._id===pageId){
+                res.json(pages[p]);
+                return;
+            }
+        }
+        res.sendStatus(404);
     }
 
 

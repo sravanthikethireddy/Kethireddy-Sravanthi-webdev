@@ -13,10 +13,7 @@
             "findWidgetById": findWidgetById,
             "updateWidget": updateWidget,
             "deleteWidget": deleteWidget,
-            "createWidgetHeader": createWidgetHeader,
-            "createWidgetImage": createWidgetImage,
-            "createWidgetYouTube": createWidgetYouTube,
-            "sortWidget":sortWidget
+            "sortWidget": sortWidget
 
 
         };
@@ -43,42 +40,25 @@
         }
 
         function updateWidget(widgetId, widget) {
-var url = '/api/widget/' + widgetId;
+            var url = '/api/widget/' + widgetId;
             return $http.put(url, widget);
 
 
         }
 
         function deleteWidget(widgetId) {
-            var url ='/api/widget/' + widgetId;
+            var url = '/api/widget/' + widgetId;
             return $http.delete(url);
 
 
         }
 
-        function createWidgetHeader(pageId, widget) {
-            var url = '/api/page/' + pageId + '/widget';
-            return $http.post(url, widget);
-
+        function sortWidget(pageId, initial, final) {
+            var url = "/api/page/" + pageId + "/widget?initial=" + initial + "&final=" + final;
+            return $http.put(url);
         }
 
-        function createWidgetImage(pageId, widget) {
-            var url = '/api/page/' + pageId + '/widget';
-            return $http.post(url, widget);
-
-        }
-
-        function createWidgetYouTube(pageId, widget) {
-           var url = '/api/page/' + pageId + '/widget';
-            return $http.post(url, widget);
-
-
-        }
-        function sortWidget(pageId, inital, final) {
-            return $http.put("/api/page/" + pageId + "/widget?initial=" + initial + "&final=" + final);
-
-        }
-        }
+    }
 
 
 })();
