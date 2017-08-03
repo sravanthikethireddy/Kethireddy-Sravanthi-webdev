@@ -26,15 +26,21 @@
         }
 
         function findAllWebsitesForUser(userId) {
-            var url = "/api/user/" + userId + "/website";
-            return $http.get(url);
+            var url = "/api/user/"+userId+"/website";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
 
 
         }
 
         function findWebsiteById(websiteId) {
             var url = '/api/website/' + websiteId;
-            return $http.get(url);
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
 
 
         }

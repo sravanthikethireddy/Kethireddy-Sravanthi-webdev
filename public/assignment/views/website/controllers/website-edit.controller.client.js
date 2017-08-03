@@ -7,40 +7,44 @@
         .controller("WebsiteEditController", WebsiteEditController);
 
     function WebsiteEditController($routeParams, WebsiteService, $location) {
-        var vm = this;
-        vm.userId = $routeParams['uid'];
-        vm.websiteId = $routeParams['wid'];
+        var model = this;
+        model.userId = $routeParams['userId'];
+        model.websiteId = $routeParams['websiteId'];
 
         function init() {
-            vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            model.websites = WebsiteService.findAllWebsitesForUser(model.userId);
+            model.website = WebsiteService.findWebsiteById(model.websiteId);
         }
 
         init();
-        vm.updateWebsite = updateWebsite;
-        vm.deleteWebsite = deleteWebsite;
+        model.updateWebsite = updateWebsite;
+        model.deleteWebsite = deleteWebsite;
+        model.back = back;
 
         function updateWebsite(newSite) {
-            var site = WebsiteService.updateWebsite(vm.websiteId, newSite);
+            var site = WebsiteService.updateWebsite(model.websiteId, newSite);
             if (site) {
-                vm.message = "Website updated";
-                $location.url("/user" + vm.userId + "/website");
+                model.message = "Website updated";
+                $location.url("/user/" + model.userId + "/website");
             }
             else {
-                vm.error = "Error while updating website"
+                model.error = "Error while updating website"
             }
         }
 
         function deleteWebsite() {
-            var site = WebsiteService.deleteWebsite(vm.websiteId);
+            var site = WebsiteService.deleteWebsite(model.websiteId);
             if (site) {
-                $location.url("/user" + vm.userId + "/website");
+                $location.url("/user/" + model.userId + "/website");
 
             }
             else {
-                vm.error = "Unable to delete the website"
+                model.error = "Unable to delete the website"
             }
 
+        }
+        function back() {
+            $location.url('/user/'+model.userId+'/website')
         }
     }
 })();

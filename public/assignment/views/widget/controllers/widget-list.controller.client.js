@@ -7,17 +7,17 @@
         .controller("WidgetListController", WidgetListController);
 
     function WidgetListController($routeParams, WidgetService, $sce, $location) {
-        var vm = this;
-        vm.userId = $routeParams['uid'];
-        vm.pageId = $routeParams['pid'];
-        vm.websiteId = $routeParams['wid'];
-        vm.doYouTrustUrl = doYouTrustUrl;
+        var model = this;
+        model.userId = $routeParams['uid'];
+        model.pageId = $routeParams['pid'];
+        model.websiteId = $routeParams['wid'];
+        model.doYouTrustUrl = doYouTrustUrl;
 
         function init() {
             WidgetService
-                .findWidgetsByPageId(vm.pageId)
+                .findWidgetsByPageId(model.pageId)
                 .then(function (widgets) {
-                    vm.widgets = widgets;
+                    model.widgets = widgets;
                 });
         }
 

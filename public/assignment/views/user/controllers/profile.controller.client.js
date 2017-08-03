@@ -7,32 +7,28 @@
         .controller("ProfileController", ProfileController);
 
     function ProfileController($routeParams, UserService, $location) {
-        var vm = this;
+        var model = this;
         var userId = $routeParams['uid'];
-        vm.updateUser = updateUser;
-        vm.unregister = unregister;
-        vm.userId = userId;
+        model.updateUser = updateUser;
+        // model.unregister = unregister;
+        model.userId = userId;
 
         function init() {
-            UserService.findUserById(userId)
+            UserService
+                .findUserById(userId)
                 .then(function (response) {
-                    vm.user = response.data;
+                    model.user = response.data;
                 });
         }
         init();
 
-        function updateUser(user) {
-            UserService.updateUser(userId, user)
+        function updateUser() {
+            UserService
+                .updateUser(model.userId, model.user)
                 .then(function () {
-                    vm.message='';
+                    model.message='';
                 });
         }
 
-        function unregister() {
-            UserService.deleteUser(user._id)
-                .then(function () {
-                    $location.url("/login");
-                });
-        }
     }
 })();

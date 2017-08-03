@@ -6,17 +6,17 @@
         .module("WebAppMaker")
         .controller("WidgetEditController", WidgetEditController);
     function WidgetEditController($routeParams,WidgetService,$location,$sce) {
-        var vm=this;
-        vm.userId=$routeParams['uid'];
-        vm.pageId=$routeParams['pid'];
-        vm.websiteId=$routeParams['wid'];
-        vm.widgetId=$routeParams['wgid'];
-        vm.updateWidget=updateWidget;
-        vm.deleteWidget=deleteWidget;
+        var model=this;
+        model.userId=$routeParams['uid'];
+        model.pageId=$routeParams['pid'];
+        model.websiteId=$routeParams['wid'];
+        model.widgetId=$routeParams['wgid'];
+        model.updateWidget=updateWidget;
+        model.deleteWidget=deleteWidget;
         function init() {
-            WidgetService.findWidgetById(vm.widgetId)
+            WidgetService.findWidgetById(model.widgetId)
                 .then(function (widget) {
-                    vm.widget = widget;
+                    model.widget = widget;
                 });
         }
         init();
@@ -24,14 +24,14 @@
             WidgetService
                 .updateWidget(widgetId, widget)
                 .then(function () {
-                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
                 });
         }
         function deleteWidget() {
             WidgetService
                 .deleteWidget(widgetId)
                 .then(function () {
-                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
 
                 })
         }

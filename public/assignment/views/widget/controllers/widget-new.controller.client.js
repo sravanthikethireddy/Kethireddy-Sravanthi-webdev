@@ -7,27 +7,27 @@
         .controller("WidgetNewController", WidgetNewController);
 
     function WidgetNewController($routeParams, WidgetService, $location) {
-        var vm = this;
-        vm.userId = $routeParams['uid'];
-        vm.pageId = $routeParams['pid'];
-        vm.websiteId = $routeParams['wid'];
-        vm.widgetId = $routeParams['wgid'];
-        // vm.addWidget = addWidget;
-        vm.createWidget = createWidget;
+        var model = this;
+        model.userId = $routeParams['uid'];
+        model.pageId = $routeParams['pid'];
+        model.websiteId = $routeParams['wid'];
+        model.widgetId = $routeParams['wgid'];
+        // model.addWidget = addWidget;
+        model.createWidget = createWidget;
 
         // function init() {
-        //     vm.widgets = WidgetService.findWidgetsByPageId(vm.pageId);
-        //     vm.widget = WidgetService.findWidgetById(vm.widgetId);
+        //     model.widgets = WidgetService.findWidgetsByPageId(model.pageId);
+        //     model.widget = WidgetService.findWidgetById(model.widgetId);
         // }
         //
         // init();
 
         function createWidget(widget) {
             WidgetService
-                .createWidget(vm.pageId, widget)
+                .createWidget(model.pageId, widget)
                 .then(function (w_id) {
                     // var w_id = widgetId;
-                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget/' + w_id);
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget/' + w_id);
                 });
         }
 

@@ -20,20 +20,21 @@
 </nav>
 <div class="container-fluid">
     <ul class="list-group">
-        <!--<li class="list-group-item">-->
-            <!--<div>-->
-                <!--<b>Name</b>-->
-            <!--</div>-->
-        <!--</li>-->
+
         <li class="list-group-item" ng-repeat="website in model.websites" style="border: none">
-            <a href="#!/user/{{website.developerId}}/website/{{website._id}}/page">
-                {{website.name}}
-            </a>
-            <div class="pull-right">
-                <a href="#!/user/{{model.userId}}/website/{{website._id}}">
-                    <span class="glyphicon glyphicon-cog"></span>
+            <div>
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
+                    {{website.name}}
                 </a>
             </div>
+            <!--<div class="pull-right">-->
+            <!--cvbn-->
+            <!--<div class="col-sm-2">-->
+            dfghj
+            <a href="#!/user/{{website.developerId}}/website/{{website._id}}">
+                sdf
+                <span class="glyphicon glyphicon-cog white pull-right"></span></a>
+            <!--</div>-->
         </li>
 
     </ul>
@@ -49,3 +50,4 @@
         </div>
     </div>
 </nav>
+

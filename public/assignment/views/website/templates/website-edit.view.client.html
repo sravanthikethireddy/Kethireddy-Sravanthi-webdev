@@ -5,7 +5,8 @@
 
             <div class="navbar-text pull-left">
 
-                <a href="#!/user/{{model.userId}}/website">
+                <a class="ngclick" ng-click="model.back()">
+
                     <span class="glyphicon glyphicon-chevron-left white"></span>
                 </a>
             </div>
@@ -16,27 +17,40 @@
                 <a href="#!/user/{{model.userId}}/website/new">
                     <span class="glyphicon glyphicon-plus white"></span>
                 </a>
+
             </div>
 
 
         </div>
-        <div class="col-sm-8">
-            <div class="navbar-text pull-left visible-xs">
-                <a href="#!/user/{{model.userId}}/website">
-                    <span class="glyphicon glyphicon-chevron-left white"></span>
-                </a>
-            </div>
-            <div class="navbar-header pull-left">
-                <a class="navbar-brand">Edit Website</a>
-            </div>
-            <div class="navbar-text pull-right">
-                <a class="ngclick" ng-click="model.updateWebsite(model.website)" role="button">
-                    <!--href="#!/user/{{model.userId}}/website">-->
-                <span class="glyphicon glyphicon-ok white pull-right">
+        <!--<div class="col-sm-8">-->
+            <!--<div class="navbar-text pull-left visible-xs">-->
+                <!--<a href="#!/user/{{model.userId}}/website">-->
+                    <!--<span class="glyphicon glyphicon-chevron-left white"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-header pull-left">-->
+                <!--<a class="navbar-brand">Edit Website</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-text pull-right">-->
+                <!--<a class="ngclick" ng-click="model.updateWebsite(model.website)" role="button">-->
+                    <!--&lt;!&ndash;href="#!/user/{{model.userId}}/website">&ndash;&gt;-->
+                <!--<span class="glyphicon glyphicon-ok white pull-right">-->
 
-                </span>
+                <!--</span>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="col-sm-8">
+            <div class="navbar-text">
+                <a ng-click="model.updateWebsite(model.website)">
+                    <span class="glyphicon glyphicon-ok white pull-right">
+
+                    </span>
                 </a>
             </div>
+            <a class="navbar-brand pull left">
+                Edit Website
+            </a>
         </div>
     </div>
 
@@ -46,11 +60,9 @@
     <!--<div class="verticalLine">-->
     <div class="col-sm-4 hidden-xs border-right" style="border: none">
         <ul class="list-group" style="border: none">
-            <!--<li class="list-group-item" style="border: none">-->
-                <!--<strong>Name</strong>-->
-            <!--</li>-->
+            <!--xcvbnm,-->
             <li class="list-group-item" ng-repeat="website in model.websites" style="border: none">
-                <a href="#!/user/{{website.developerId}}/website/{{website._id}}/page">{{website.name}}</a>
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">{{website.name}}</a>
                 <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
@@ -60,7 +72,7 @@
         <!--</div>-->
     </div>
     <!--<div class="verticalLine">-->
-        <div class="col-sm-8 container-fluid">
+        <div class="col-sm-8">
             <form>
                 <div class="form-group">
                     <label for="name">Website Name</label>

@@ -20,12 +20,15 @@
 
         function createUser(user) {
             var url = "/api/user";
-            return $http.post(url,user);
+            return $http.post(url,user)
+                .then(function (respinse) {
+                    return respinse.data;
+                })
         }
 
         function findUserById(id) {
         var url ="/api/user/" + id;
-            return $http.get(url);
+            return $http.get(url)
 
         }
 
@@ -37,13 +40,17 @@
         }
 
         function findUserByCredentials(username, password) {
-            var url = "/api/user?username=" + username + "&password=" + password
-            return $http.get(url);
+            var url = "/api/user?username="+username+"&password="+password;
+            return $http.get(url)
+                .then(function(response)
+                {
+                    // console.log("hello user");
+                return response.data;})
 
         }
 
         function updateUser(userId, updateUser) {
-            var url = "/api/user/" + userId;
+            var url = "/api/user/"+userId;
             return $http.put(url, updateUser);
 
 

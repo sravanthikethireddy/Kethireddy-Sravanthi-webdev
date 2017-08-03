@@ -21,6 +21,19 @@
     </div>
 </nav>
 <div class="container-fluid">
+    <div class="col-sm-4 hidden-sm">
+        <ul class="list-group">
+            <!--<li class="list-group-item"><strong>Name</strong></li>-->
+            <li class="list-group-item" ng-repeat="page in model.pages">
+                <a href = "#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                    {{page.name}}
+                </a>
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                    <span class="glyphicon glyphicon-cog white pull-right"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
     <label for="name">Name</label>
     <input ng-model="page.name"
            type="text"

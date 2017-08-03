@@ -6,8 +6,8 @@
         .module("WebAppMaker")
         .controller("LoginController",LoginController);
     function LoginController($location, UserService) {
-        var vm = this;
-        vm.login = login;
+        var model = this;
+        model.login = login;
         function init() {
 
         }
@@ -18,16 +18,23 @@
                 model.errorMessage = "User not found";
                 return;
             }
-            var promise = UserService.findUserByCredentials(user.username, user.password);
-            promise
-                .then(function (response) {
-                    user = response.data;
-                    if(user === null) {
-                        model.errorMessage = "User not found";
-                    } else {
-                        // $rootScope.currentUser = user;
-                        $location.url("/user/"+user._id);
-                    }
+            promise = UserService
+                .findUserByCredentials(user.username, user.password)
+            // promise
+            // console.log("testingggggg")
+                .then(function (user) {
+                    // user = response.data;
+                    // if(user === null) {
+                    //     model.errorMessage = "User not found";
+                    // }
+                    // else {
+                    //     // $rootScope.currentUser = user;
+                    //     $location.url("/user/"+user._id);
+                    // }
+                    if (user){
+                        $location.url('/user/'+user._id);
+                        console.log(user._id)
+                    }else{model.error="Invalid username or password"}
                 });
         }
     }

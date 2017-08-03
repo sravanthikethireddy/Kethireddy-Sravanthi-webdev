@@ -44,8 +44,10 @@ module.exports = function (app) {
 
     function findWebsiteById(req, res) {
         for (var w in websites) {
-            if (websites[w]._id === req.params.websiteId) {
-                res.json(websites[w]);
+            if (websites[w]._id === req.params['websiteId']) {
+                // res.json(websites[w]);
+                res.send(websites[w]);
+                return;
             }
         }
         res.sendStatus(404);

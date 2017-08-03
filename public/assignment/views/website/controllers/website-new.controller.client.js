@@ -7,16 +7,16 @@
         .controller("WebsiteNewController", WebsiteNewController);
 
     function WebsiteNewController($routeParams, WebsiteService, $location) {
-        var vm = this;
-        vm.userId = $routeParams['uid'];
+        var model = this;
+        model.userId = $routeParams['uid'];
 
-        vm.createWebsite = createWebsite;
+        model.createWebsite = createWebsite;
 
         function init() {
             WebsiteService
-                .findAllWebsitesForUser(vm.userId)
+                .findAllWebsitesForUser(model.userId)
                 .then(function (websites) {
-                    vm.websites = websites;
+                    model.websites = websites;
                 });
 
         }
@@ -24,15 +24,15 @@
         init();
 
         function createWebsite(website) {
-            // var newWebsite = WebsiteService.createWebsite(vm.userId, website);
+            // var newWebsite = WebsiteService.createWebsite(model.userId, website);
             // if (newWebsite) {
-                // $location.url("/user/" + vm.userId + "/website");
+                // $location.url("/user/" + model.userId + "/website");
             // init();
             // }
             WebsiteService
                 .createWebsite(userId, website)
                 .then(function (website) {
-                    $location.url("/user/" + vm.userId + "/website");
+                    $location.url("/user/" + model.userId + "/website");
 
                 })
         }

@@ -7,39 +7,39 @@
         .controller("PageEditController", PageEditController);
 
     function PageEditController($routeParams, $location, PageService) {
-        var vm = this;
-        vm.userId = $routeParams['uid'];
-        vm.websiteId = $routeParams['wid'];
-        vm.pageId = $routeParams['pid'];
-        vm.updatePage = updatePage;
-        vm.deletePage = deletePage;
+        var model = this;
+        model.userId = $routeParams['uid'];
+        model.websiteId = $routeParams['wid'];
+        model.pageId = $routeParams['pid'];
+        model.updatePage = updatePage;
+        model.deletePage = deletePage;
 
         function init() {
-            vm.page = PageService.findPageById(vm.pageId);
-            vm.pages = PageService.findAllPagesByWebsiteId(vm.websiteId);
+            model.page = PageService.findPageById(model.pageId);
+            model.pages = PageService.findAllPagesByWebsiteId(model.websiteId);
         }
 
         init();
 
         function updatePage(newPage) {
-            var success = PageService.updatePage(vm.pageId, newPage);
+            var success = PageService.updatePage(model.pageId, newPage);
             if (success) {
-                $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
-                vm.message = "Page updated";
+                $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page');
+                model.message = "Page updated";
             }
             else {
-                vm.error = "Page not updated";
+                model.error = "Page not updated";
             }
 
         }
 
         function deletePage() {
-            var success = PageService.deletePage(vm.pageId);
+            var success = PageService.deletePage(model.pageId);
             if (success) {
-                $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+                $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page');
             }
             else {
-                vm.error = "Page not deleted";
+                model.error = "Page not deleted";
             }
         }
 
