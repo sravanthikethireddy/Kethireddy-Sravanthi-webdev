@@ -34,7 +34,9 @@ module.exports = function (app) {
         var sites = [];
 
         for (var w in websites) {
-            if (websites[w].developerId === userId) {
+            // console.log("websites!")
+            // console.log(userId)
+            if (websites[w].developerId === req.params.userId) {
                 sites.push(websites[w]);
             }
         }

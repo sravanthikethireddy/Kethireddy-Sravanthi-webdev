@@ -1,3 +1,57 @@
+<!--<nav class="navbar navbar-normal navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-text pull-left">-->
+            <!--<a href="#!/user/{{model.userId}}">-->
+                <!--<span class="glyphicon glyphicon-chevron-left white">-->
+                <!--</span>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="navbar-text pull-right">-->
+
+            <!--<a href="#!/user/{{model.userId}}/website/new">-->
+                <!--<span class="glyphicon glyphicon-plus white">-->
+                <!--</span>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="#!/user/{{model.userId}}"><strong>Websites</strong></a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+<!--<div class="container-fluid">-->
+    <!--<ul class="list-group">-->
+        <!--&lt;!&ndash;<li class="list-group-item">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<b>Name</b>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+        <!--<li class="list-group-item" ng-repeat="website in model.websites" style="border: none">-->
+            <!--&lt;!&ndash;<a href="#!/user/{{website.developerId}}/website/{{website._id}}/page">&ndash;&gt;-->
+            <!--<a href="#!/user/{{model.userId}}/website/{{website._id}}/page">-->
+            <!--{{website.name}}-->
+            <!--</a>-->
+            <!--<div class="navbar-text pull-right">-->
+                <!--&lt;!&ndash;fcghvjbknlm&ndash;&gt;-->
+                <!--<a href="#!/user/{{model.developerId}}/website/{{website._id}}">-->
+                    <!--<span class="glyphicon glyphicon-cog"></span>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</li>-->
+
+    <!--</ul>-->
+
+<!--</div>-->
+<!--<nav class="navbar navbar-normal navbar-fixed-bottom">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-text pull-right">-->
+            <!--<a href="#!/user/{{model.userId}}">-->
+                <!--<span class="glyphicon glyphicon-user white">-->
+                <!--</span>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+
 <nav class="navbar navbar-normal navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
@@ -22,19 +76,14 @@
     <ul class="list-group">
 
         <li class="list-group-item" ng-repeat="website in model.websites" style="border: none">
-            <div>
-                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
-                    {{website.name}}
+            <a href="#!/user/{{website.developerId}}/website/{{website._id}}/page">
+                {{website.name}}
+            </a>
+            <div class="pull-right">
+                <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                    <span class="glyphicon glyphicon-cog"></span>
                 </a>
             </div>
-            <!--<div class="pull-right">-->
-            <!--cvbn-->
-            <!--<div class="col-sm-2">-->
-            dfghj
-            <a href="#!/user/{{website.developerId}}/website/{{website._id}}">
-                sdf
-                <span class="glyphicon glyphicon-cog white pull-right"></span></a>
-            <!--</div>-->
         </li>
 
     </ul>

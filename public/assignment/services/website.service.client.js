@@ -27,20 +27,21 @@
 
         function findAllWebsitesForUser(userId) {
             var url = "/api/user/"+userId+"/website";
-            return $http.get(url)
-                .then(function (response) {
-                    return response.data;
-                });
+            return $http.get(url);
+                // .then(function (response) {
+                //     console.log(userId)
+                //     return response.data;
+                // });
 
 
         }
 
         function findWebsiteById(websiteId) {
             var url = '/api/website/' + websiteId;
-            return $http.get(url)
-                .then(function (response) {
-                    return response.data;
-                });
+            return $http.get(url);
+                // .then(function (response) {
+                //     return response.data;
+                // });
 
 
         }

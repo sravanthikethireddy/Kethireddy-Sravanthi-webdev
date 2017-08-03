@@ -7,13 +7,13 @@
         .controller("WebsiteListController",WebsiteListController);
     function WebsiteListController($routeParams,WebsiteService) {
         var model = this;
-        model.userId = $routeParams['userId'];
+        model.userId = $routeParams['uid'];
         function init() {
-             WebsiteService
+            WebsiteService
                  .findAllWebsitesForUser(model.userId)
-                 .then(function (websites) {
-                     // console.log("all websites")
-                     model.websites = websites;
+                 .then(function (response) {
+                     console.log(model.userId)
+                     model.websites = response.data;
                  });
         }
         init()
