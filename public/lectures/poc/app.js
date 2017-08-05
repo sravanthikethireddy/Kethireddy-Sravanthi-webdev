@@ -37,7 +37,7 @@
         this.searchTracksofArtist = searchTracksofArtist;
 
         function searchTracksofArtist(artist) {
-            var url = "http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user=rj&artist=" + artist + "+&api_key=" + key;
+            var url = "http://ws.audioscrobbler.com/2.0/?method=user.getartisttracks&user=rj&artist=" + artist + "+&api_key=" + key +"&format=json";
             return $http.get(url)
                 .then(function (response) {
                     return response.data
