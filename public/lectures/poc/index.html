@@ -22,7 +22,10 @@
     <table class="table">
         <tr ng-repeat="track in model.tracks.artisttracks.track">
         <!--<tr ng-repeat="name in model.artisttrack">-->
-            <td> {{track.name}}</td>
+            <td>
+                <a href ="{{track.url}}">{{track.name}}</a></td>
+            <!--<td>{{track.url}}</td>-->
+            <td><img ng-src ="{{track.image}}"/></td>
         </tr>
         <!--</tr>-->
     </table>
