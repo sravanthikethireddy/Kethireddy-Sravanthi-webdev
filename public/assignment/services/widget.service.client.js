@@ -54,8 +54,9 @@
         }
 
         function sortWidget(pageId, initial, final) {
-            var url = "/api/page/" + pageId + "/widget?initial=" + initial + "&final=" + final;
-            return $http.put(url);
+            // var url = "/api/page/" + pageId + "/widget?initial=" + initial + "&final=" + final;
+            // return $http.put(url);
+            return $http.post('/api/order/' + pageId+'/widget?initial=' + initial + '&final=' + final);
         }
 
     }

@@ -1,56 +1,67 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-left">
-            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
-
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/">
                 <span class="glyphicon glyphicon-chevron-left black">
+
                 </span>
             </a>
-
         </div>
         <div class="navbar-text pull-right">
             <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
-                <span class="glyphicon glyphicon-plus black"></span>
+                <span class="glyphicon glyphicon-plus black">
+
+                </span>
             </a>
         </div>
-
         <div class="navbar-header">
-            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"><strong>Widgets</strong></a>
+            <a class="navbar-brand">
+                Widgets
+            </a>
         </div>
-<!--<div class="navbar-header">-->
-
-<!--</div>-->
-
     </div>
 </nav>
 
-<div ng-repeat="widget in model.widgets">
-    <div class="widget-toolbar">
-        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-            <span class="glyphicon glyphicon-cog pull-left"></span>
-        </a>
-        <span class="glyphicon glyphicon-align-justify pull-left"></span>
+<div class="container-fluid">
+    <div id="widget-list" wbdv-sortable="">
+        <div ng-repeat="widget in model.widgets">
+            <div class="row relative">
+                <div class="pull-right widget-size">
+                    <div class="widget-style absolute">
+                        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-cog">
+
+                                </span>
+                        </a>
+                        <span class="glyphicon glyphicon-align-justify">
+
+                            </span>
+                    </div>
+                </div>
+                <div class="container-fluid" ng-include src="model.getWidgetTemplateUrl(widget.type)">
+                    <div class="alert" ng-show="model.message">{{model.message}}</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div ng-switch="widget.widgetType">
-        <!--<h1>test</h1>-->
-        <div ng-switch-when="HEADING">
-            <div ng-include="'views/widget/templates/widget-heading.view.client.html'"></div>
-        </div>
-        <div ng-switch-when="IMAGE">
-            <div ng-include="'views/widget/templates/widget-image.view.client.html'"></div>
-        </div>
-        <div ng-switch-when="YOUTUBE">
-            <div ng-include="'views/widget/templates/widget-youtube.view.client.html'"></div>
-        </div>
-   </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
             <a href="#!/user/{{model.userId}}">
-                <span class="glyphicon glyphicon-user"></span>
+                <span class="glyphicon glyphicon-user black">
+
+                </span>
             </a>
+        </div>
+        <div class="navbar-text">
+            <span class="glyphicon glyphicon-play black">
+
+            </span>
+            <span class="glyphicon glyphicon-eye-open black">
+
+            </span>
         </div>
     </div>
 </nav>

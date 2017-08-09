@@ -1,7 +1,8 @@
 (function () {
     angular
         .module('wdvDirectives',[])
-        .directive('wdvSortable',wdvSortable);
+        .directive('wdvSortable',wdvSortable)
+        .directive('wdvDraggable',wdvDraggable);
     function wdvSortable(){
         function linkFunction(scope,element,attributes) {
             var initial;
@@ -24,5 +25,13 @@
             scope:{wdvCallBack:'&'},
             link:linkFunction()
         };
+    }
+    function wdvDraggable() {
+        function linkFunction(scope, element) {
+            element.draggable();
+        }
+        return{
+            link :linkFunction()
+        }
     }
 })();

@@ -1,55 +1,27 @@
-/**
- * Created by Sravanthi Kethireddy on 7/21/2017.
- */
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("WidgetNewController", WidgetNewController);
+        .controller("NewWidgetController", NewWidgetController);
 
-    function WidgetNewController($routeParams, WidgetService, $location) {
+    function NewWidgetController($location, $routeParams, WidgetService) {
         var model = this;
-        model.userId = $routeParams['uid'];
-        model.pageId = $routeParams['pid'];
-        model.websiteId = $routeParams['wid'];
-        model.widgetId = $routeParams['wgid'];
-        // model.addWidget = addWidget;
-        model.createWidget = createWidget;
+        var userId = $routeParams.uid;
+        var pageId = $routeParams.pid;
+        var websiteId = $routeParams.wid;
+        model.userId = userId;
+        model.pageId = pageId;
+        model.websiteId = websiteId;
+        model.n_widget = n_widget;
 
-        // function init() {
-        //     model.widgets = WidgetService.findWidgetsByPageId(model.pageId);
-        //     model.widget = WidgetService.findWidgetById(model.widgetId);
-        // }
-        //
-        // init();
-
-        function createWidget(pageId, widgetType) {
-            var widget = {};
-            widget.widgetType = widgetType;
-            switch (widgetType) {
-                case "HEADER":
-                    widget.size = 5;
-                    widget.text = "Heading";
-                    break;
-                case "HTML":
-                    widget.text="html";
-                    break;
-                case "IMAGE":
-                    widget.width="100%";
-                    widget.url="http://lorempixel.com/400/200";
-                    break;
-                case "YOUTUBE":
-                    widget.width="100%";
-                    widget.url='http://lorempixel.com/400/200';
-                    break;
-
-            }
+        function n_widget(n_widgetType) {
+            var n_widget = {
+                type: n_widgetType
+            };
             WidgetService
-                .createWidget(pageId, widget)
-                .then(function (response) {
-                    var wid = response.data;
-                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget/' + wid._id);
+                .createWidget(pageId, n_widget)
+                .success(function (w) {
+                    $location.url('/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget/' + w._id);
                 });
         }
-
     }
 })();

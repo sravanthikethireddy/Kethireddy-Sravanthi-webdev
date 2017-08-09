@@ -1,41 +1,64 @@
-/**
- * Created by Sravanthi Kethireddy on 7/21/2017.
- */
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("WidgetListController", WidgetListController);
+        .controller("WidgetListController", widgetListController);
 
-    function WidgetListController($routeParams, WidgetService, $sce, $location) {
+    function widgetListController($routeParams, WidgetService, $sce) {
         var model = this;
-        model.userId = $routeParams['uid'];
-        model.pageId = $routeParams['pid'];
-        model.websiteId = $routeParams['wid'];
+        model.getTrustedHtml = getTrustedHtml;
+        model.getWidgetTemplateUrl = getWidgetTemplateUrl;
         model.doYouTrustUrl = doYouTrustUrl;
-        model.sortWidget = sortWidget;
+        var widgets;
+        var websiteId = $routeParams.wid;
+        model.userId = $routeParams.uid;
+        model.websiteId = websiteId;
+        model.pageId = $routeParams.pid;
 
         function init() {
             WidgetService
                 .findWidgetsByPageId(model.pageId)
-                .then(function (response) {
-                    model.widgets = response.data;
+                .success(function (widgets) {
+                    model.widgets = widgets;
+                    if (widgets.length === 0) {
+                        model.message = "No widgets found!";
+                    }
                 });
+            var initialIndex = -1;
+            var finalIndex = -1;
+            $('#widget-list').sortable({
+                axis: "y",
+                initial: function (event, ui) {
+                    initialIndex = ui.item.index();
+                },
+                final: function (event, ui) {
+                    finalIndex = ui.item.index();
+                    WidgetService
+                        .sortWidgetList(model.pageId, initialIndex, finalIndex)
+                        .success(function (widgets) {
+                            console.log("success!")
+                        })
+                }
+            });
         }
 
         init();
 
+
+        function getTrustedHtml(html) {
+            return $sce.trustAsHtml(html);
+        }
+
+        function getWidgetTemplateUrl(widgetType) {
+            var url = 'views/widget/templates/widget-' + widgetType + '.view.client.html';
+            return url;
+        }
+
         function doYouTrustUrl(url) {
-            var u = "https://www.youtube.com/embed/";
-            var p = url.split('/');
-            var id = p[p.length - 1];
-            u += id;
-            return $sce.trustAsResourceUrl(u);
+            var baseUrl = "https://www.youtube.com/embed/";
+            var urlParts = url.split('/');
+            var id = urlParts[urlParts.length - 1];
+            baseUrl += id;
+            return $sce.trustAsResourceUrl(baseUrl);
         }
-
-        function sortWidget(initial, final) {
-            WidgetService
-                .sortWidget(model.pageId, initial, final)
-        }
-
     }
 })();

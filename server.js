@@ -7,9 +7,13 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 // require("./utilities/filelist");
 
+// var connectionString ='assignment';
+// var mongoose = require("mongoose");
+// mongoose.connect(connectionString);
+
 app.use(express.static(__dirname + '/public'));
 
-require("./test/app")(app);
+require("./test/app.js")(app);
 require("./assignment/app.js")(app);
 
 var port = process.env.PORT || 3000;

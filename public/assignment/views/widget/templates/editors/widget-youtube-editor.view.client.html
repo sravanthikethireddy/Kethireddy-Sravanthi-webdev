@@ -1,0 +1,41 @@
+<form>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input ng-model="model.widget.name"
+               class="form-control"
+               type="text"
+               id="name"
+               placeholder="Name">
+    </div>
+
+    <div class="form-group">
+        <label for="text">Text</label>
+        <input ng-model="model.widget.text"
+               class="form-control"
+               type="text"
+               id="text"
+               placeholder="Text">
+    </div>
+
+    <div class="form-group">
+        <label for="url">URL</label>
+        <input ng-model="model.widget.url"
+               class="form-control"
+               type="text"
+               id="url"
+               placeholder="youtube">
+    </div>
+
+    <div class="form-group">
+        <label for="width">Width</label>
+        <input ng-model="model.widget.width"
+               class="form-control"
+               type="text"
+               value="100%"
+               id="width"
+               placeholder="Width">
+    </div>
+</form>
+
+<a class="btn btn-block btn-danger"
+   ng-click="model.deleteWidget()">Delete</a>

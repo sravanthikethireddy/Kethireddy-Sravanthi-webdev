@@ -1,42 +1,25 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-            <a ng-click="model.updateWidget(model.widgetId,model.widget)" class="navbar-text pull-right">
-                <span class="glyphicon glyphicon-ok black"></span>
-            </a>
         <div class="navbar-text pull-left">
             <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
-                <span class="glyphicon glyphicon-chevron-left black">
-                </span>
+                <span class="glyphicon glyphicon-chevron-left black"></span>
             </a>
         </div>
-
-
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"><strong>Edit Widget</strong></a>
+        <div class="navbar-text pull-right">
+            <a ng-click="model.updateWidget(model.widget)">
+                <span class="glyphicon glyphicon-ok black"></span>
+            </a>
         </div>
-
-
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Edit Widget
+            </a>
+        </div>
     </div>
 </nav>
 
-<!--<h1>asdfasdf</h1>-->
-<!--{{model.widget}}-->
-
-
-<div ng-switch="model.widget.widgetType">
-    <!--<h1>tets</h1>-->
-    <div ng-switch-when="HEADING">
-        <!--<h1>test</h1>-->
-        <div ng-include="'views/widget/editor/widget-heading.view.client.html'"></div>
-    </div>
-    <div ng-switch-when="IMAGE">
-        <div ng-include="'views/widget/editor/widget-image.view.client.html'"></div>
-    </div>
-    <div ng-switch-when="YOUTUBE">
-        <div ng-include="'views/widget/editor/widget-youtube.view.client.html'"></div>
-    </div>
+<div class="container-fluid" ng-include="model.getEditorTemplateUrl(model.widget.type)">
 </div>
-
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
