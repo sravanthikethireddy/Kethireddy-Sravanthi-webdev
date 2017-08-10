@@ -19,7 +19,7 @@
             </div>
             <div class="col-sm-8">
                 <div class="navbar-text pull-right">
-                    <a ng-click="model.updatesite(model.website)">
+                    <a ng-click="model.updateWebsite()">
                         <span class="glyphicon glyphicon-ok white"></span>
                     </a>
                 </div>
@@ -33,10 +33,13 @@
         <ul class="list-group" style="border: none">
             <!--xcvbnm,-->
             <li class="list-group-item" ng-repeat="website in model.websites" style="border: none">
-                <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+                <div class="row">
+                    <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+
                 <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
+                </div>
             </li>
 
         </ul>

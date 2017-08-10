@@ -37,18 +37,20 @@
         }
 
         function findWebsiteById(websiteId) {
-            var url = '/api/website/' + websiteId;
+            var url = "/api/website/" + websiteId;
             return $http.get(url);
                 // .then(function (response) {
+                //     console.log(response.data);
                 //     return response.data;
                 // });
 
 
         }
 
-        function updateWebsite(websiteId, newSite) {
-            var url = '/api/website/' + websiteId;
-            return $http.put(url, newSite);
+        function updateWebsite(website) {
+            var url = '/api/website/' + website._id;
+            console.log(url)
+            return $http.put(url, website);
 
         }
 

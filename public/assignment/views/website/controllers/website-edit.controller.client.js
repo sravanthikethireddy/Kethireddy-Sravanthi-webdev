@@ -11,22 +11,39 @@
         model.userId = $routeParams['uid'];
         model.websiteId = $routeParams['wid'];
 
-        function init() {
-            model.websites = WebsiteService.findWebsitesByUser(model.userId);
-            model.website = WebsiteService.findWebsiteById(model.websiteId);
-        }
-
-        init();
-        model.updatesite = updatesite;
+        model.updateWebsite = updateWebsite;
         model.deletesite = deletesite;
         model.back = back;
 
-        function updatesite(n_site) {
+        function init() {
             WebsiteService
-                .updateWebsite(model.websiteId, n_site)
-                .then(function (updated) {
-                    $location.url('/user/' + model.userId + '/website');
+                .findWebsitesByUser(model.userId)
+                .then(function (response) {
+                    model.websites = response.data
+                });
 
+            WebsiteService
+                .findWebsiteById(model.websiteId)
+                .then(function (response) {
+                    model.website = response.data
+                })
+
+        }
+
+        init();
+
+
+        function updateWebsite() {
+            WebsiteService
+                .updateWebsite(model.website)
+                .then(function (response) {
+                    var value = response.data;
+                    if (value) {
+                        $location.url('/user/' + model.userId + '/website');
+                    }
+                    else{
+                        console.log("testing")
+                    }
 
                 });
         }
