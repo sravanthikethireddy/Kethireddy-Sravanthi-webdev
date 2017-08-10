@@ -21,8 +21,8 @@
         function createUser(user) {
             var url = "/api/user";
             return $http.post(url,user)
-                .then(function (respinse) {
-                    return respinse.data;
+                .then(function (response) {
+                    return response.data;
                 })
         }
 

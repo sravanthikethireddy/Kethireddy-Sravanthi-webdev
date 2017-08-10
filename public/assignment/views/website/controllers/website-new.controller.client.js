@@ -10,28 +10,29 @@
         var model = this;
         model.userId = $routeParams['uid'];
 
-        model.createWebsite = createWebsite;
+        // model.createWebsite = createWebsite;
+        model.newsite = newsite;
 
         function init() {
             WebsiteService
-                .findAllWebsitesForUser(model.userId)
-                .then(function (response) {
-                    model.websites = response.data;
+                .findWebsitesByUser(model.userId)
+                .then(function (websites) {
+                    model.websites = websites;
                 });
 
         }
 
         init();
 
-        function createWebsite(userId,website) {
+        function newsite(website) {
             // var newWebsite = WebsiteService.createWebsite(model.userId, website);
             // if (newWebsite) {
                 // $location.url("/user/" + model.userId + "/website");
             // init();
             // }
             WebsiteService
-                .createWebsite(userId, website)
-                .then(function () {
+                .createWebsite(model.userId, website)
+                .then(function (website) {
                     $location.url("/user/" + model.userId + "/website");
 
                 });

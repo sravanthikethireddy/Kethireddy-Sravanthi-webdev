@@ -12,27 +12,26 @@
         model.websiteId = $routeParams['wid'];
 
         function init() {
-            model.websites = WebsiteService.findAllWebsitesForUser(model.userId);
+            model.websites = WebsiteService.findWebsitesByUser(model.userId);
             model.website = WebsiteService.findWebsiteById(model.websiteId);
         }
 
         init();
-        model.updateWebsite = updateWebsite;
-        model.deleteWebsite = deleteWebsite;
+        model.updatesite = updatesite;
+        model.deletesite = deletesite;
         model.back = back;
 
-        function updateWebsite(newSite) {
-            var site = WebsiteService.updateWebsite(model.websiteId, newSite);
-            if (site) {
-                model.message = "Website updated";
-                $location.url("/user/" + model.userId + "/website");
-            }
-            else {
-                model.error = "Error while updating website"
-            }
+        function updatesite(n_site) {
+            WebsiteService
+                .updateWebsite(model.websiteId, n_site)
+                .then(function (updated) {
+                    $location.url('/user/' + model.userId + '/website');
+
+
+                });
         }
 
-        function deleteWebsite() {
+        function deletesite() {
             var site = WebsiteService.deleteWebsite(model.websiteId);
             if (site) {
                 $location.url("/user/" + model.userId + "/website");
@@ -43,8 +42,9 @@
             }
 
         }
+
         function back() {
-            $location.url('/user/'+model.userId+'/website')
+            $location.url('/user/' + model.userId + '/website')
         }
     }
 })();

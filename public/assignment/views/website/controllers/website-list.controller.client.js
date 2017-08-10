@@ -8,11 +8,12 @@
     function WebsiteListController($routeParams,WebsiteService) {
         var model = this;
         model.userId = $routeParams['uid'];
+        var websites;
         function init() {
             WebsiteService
-                 .findAllWebsitesForUser(model.userId)
+                 .findWebsitesByUser(model.userId)
                  .then(function (response) {
-                     console.log(model.userId)
+                     console.log(model.userId);
                      model.websites = response.data;
                  });
         }

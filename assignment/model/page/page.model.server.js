@@ -6,7 +6,7 @@ module
     var pageModel = mongoose.model("pageModel",pageSchema);
     var api={
         createPage: createPage,
-        findAllPagesForWebsite: findAllPagesForWebsite,
+        findAllPagesByWebsiteId: findAllPagesByWebsiteId,
         findPageById: findPageById,
         updatePage: updatePage,
         deletePage: deletePage
@@ -16,7 +16,7 @@ module
         page._website = wid;
         return pageModel.create(page);
     }
-    function findAllPagesForWebsite(wid){
+    function findAllPagesByWebsiteId(wid){
         return pageModel.find({_website:wid});
     }
 

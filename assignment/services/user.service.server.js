@@ -29,7 +29,7 @@ module.exports = function (app, model) {
             .then(function (user) {
                 res.json(user);
             }, function (error) {
-                res.sendStatus(404).send(error)
+                res.sendStatus(404).send(error);
             });
     }
 
@@ -47,7 +47,7 @@ module.exports = function (app, model) {
                 res.json(user);
             }, function (error) {
                 res.sendStatus(404).send(error);
-            })
+            });
 
     }
 
@@ -138,7 +138,7 @@ module.exports = function (app, model) {
                     res.json(u_array[0]);
                 }
                 else {
-                    res.sendStatus(404);
+                    res.send('0');//res.sendStatus(404);
                 }
             }, function (error) {
                 res.sendStatus(404).send(error);
@@ -163,7 +163,7 @@ module.exports = function (app, model) {
                     res.json(users[0]);
                 }
                 else {
-                    res.sendStatus(404);
+                    res.send('0');//res.sendStatus(404);
                 }
             }, function (error) {
                 res.sendStatus(404).send(error);

@@ -41,7 +41,7 @@ module.exports = function () {
     function reorderWidget(pageId, start, final) {
         return widgetModel.find({_page: pageId}, function (err, widgets) {
             widgets.forEach(function (widget) {
-                if (initial < final) {
+                if (start < final) {
                     if (widget.order === start) {
                         widget.order = final;
                         widget.save();

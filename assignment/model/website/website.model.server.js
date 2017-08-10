@@ -6,7 +6,7 @@ module
     var websiteModel = mongoose.model("websiteModel", websiteSchema);
 
     var api = {
-        createWebsiteForUser: createWebsiteForUser,
+        createWebsite: createWebsite,
         findAllWebsitesForUser: findAllWebsitesForUser,
         findWebsiteById: findWebsiteById,
         updateWebsite: updateWebsite,
@@ -15,7 +15,7 @@ module
     };
     return api;
 
-    function createWebsiteForUser(userId, website) {
+    function createWebsite(userId, website) {
         website._user = userId;
         return websiteModel.create(website);
     }

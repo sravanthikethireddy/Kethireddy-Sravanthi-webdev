@@ -10,7 +10,7 @@
 
         var api = {
             "createWebsite": createWebsite,
-            "findAllWebsitesForUser": findAllWebsitesForUser,
+            "findWebsitesByUser": findWebsitesByUser,
             "findWebsiteById": findWebsiteById,
             "updateWebsite": updateWebsite,
             "deleteWebsite": deleteWebsite
@@ -21,14 +21,11 @@
 
         function createWebsite(userId, website) {
             var url = '/api/user/' + userId + '/website';
-            return $http.post(url, website)
-                .then(function (response) {
-                    return response.data
-                });
+            return $http.post(url, website);
 
         }
 
-        function findAllWebsitesForUser(userId) {
+        function findWebsitesByUser(userId) {
             var url = "/api/user/"+userId+"/website";
             return $http.get(url);
                 // .then(function (response) {
