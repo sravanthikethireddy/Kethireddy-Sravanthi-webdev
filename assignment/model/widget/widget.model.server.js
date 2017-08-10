@@ -16,8 +16,24 @@ module.exports = function () {
     return api;
 
     function createWidget(pageId, widget) {
-        widget._page = pageId;
-        return widgetModel.create(widget);
+        // widget._page = pageId;
+        // return widgetModel.create(widget);
+        return model.pageModel
+            .findPageById(pageId)
+            .then(function (page) {
+                widget._page = pageId;
+                return widgetModel
+                    .create(widget)
+                    .then(function (n_Widget) {
+                        page.widgets.push(n_Widget);
+                        page.save();
+                        return n_Widget;
+                    }, function (error) {
+                        return error;
+                    });
+            }, function (error) {
+                return error;
+            });
     }
 
     function findAllWidgetsForPage(pageId) {

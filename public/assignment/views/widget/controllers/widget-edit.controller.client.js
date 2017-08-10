@@ -20,7 +20,7 @@
             model.getEditorTemplateUrl = getEditorTemplateUrl;
             WidgetService
                 .findWidgetById(model.widgetId)
-                .success(function (response) {
+                .then(function (response) {
                     model.widget = response;
                 });
         }
@@ -30,7 +30,7 @@
         function updateWidget(n_widget) {
             WidgetService
                 .updateWidget(widgetId, n_widget)
-                .success(function (updatedWidget) {
+                .then(function (updatedWidget) {
                     $location.url('/user/' + userId + '/website/' + webSiteId + '/page/' + pageId + '/widget');
                 });
         }
@@ -38,7 +38,7 @@
         function deleteWidget() {
             WidgetService
                 .deleteWidget(widgetId)
-                .success(function () {
+                .then(function () {
                     $location.url('/user/' + userId + '/website/' + webSiteId + '/page/' + pageId + '/widget');
                 });
         }

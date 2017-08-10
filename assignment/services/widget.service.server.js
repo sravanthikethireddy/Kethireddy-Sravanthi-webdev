@@ -2,7 +2,7 @@ module.exports = function (app, model) {
     var widgetModel = model.widgetModel;
     app.post('/api/page/:pageId/widget', createWidget);
     app.get('/api/page/:pageId/widget', findAllWidgetsForPage);
-    app.get('/api/page/:pageId/widget', findWidgetsByPageId);
+    // app.get('/api/page/:pageId/widget', findWidgetsByPageId);
     app.get('/api/widget/:widgetId', findWidgetById);
     app.put('/api/widget/:widgetId', updateWidget);
     app.delete('/api/widget/:widgetId', deleteWidget);
@@ -146,17 +146,6 @@ module.exports = function (app, model) {
     function findAllWidgetsForPage(req, res) {
         var pageId = req.params.pageId;
         var wid = [];
-        for (w in widgets) {
-            if (widgets[w].pageId === pageId) {
-                wid.push(widgets[w]);
-            }
-        }
-        res.json(wid);
-    }
-
-    function findWidgetsByPageId(req, res) {
-        var pageId = req.params.pageId;
-        // var wid = [];
         // for (w in widgets) {
         //     if (widgets[w].pageId === pageId) {
         //         wid.push(widgets[w]);
@@ -167,10 +156,28 @@ module.exports = function (app, model) {
             .findAllWidgetsForPage(pageId)
             .then(function (widgets) {
                 res.json(widgets);
-            }, function (error) {
-                res.statusCode(404).send(error);
-            });
+            },function (error) {
+                res.sendStatus(404).send(error);
+            })
     }
+
+    // function findWidgetsByPageId(req, res) {
+    //     var pageId = req.params.pageId;
+    //     // var wid = [];
+    //     // for (w in widgets) {
+    //     //     if (widgets[w].pageId === pageId) {
+    //     //         wid.push(widgets[w]);
+    //     //     }
+    //     // }
+    //     // res.json(wid);
+    //     widgetModel
+    //         .findAllWidgetsForPage(pageId)
+    //         .then(function (widgets) {
+    //             res.json(widgets);
+    //         }, function (error) {
+    //             res.statusCode(404).send(error);
+    //         });
+    // }
 
     function findWidgetById(req, res) {
         var widgetId = req.params.widgetId;
@@ -186,7 +193,7 @@ module.exports = function (app, model) {
             .then(function (widget) {
                 res.send(widget);
             }, function (error) {
-                res.statusCode(404).send(error);
+                res.sendStatus(404).send(error);
             });
     }
 

@@ -1,9 +1,9 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("NewWidgetController", NewWidgetController);
+        .controller("WidgetNewController", WidgetNewController);
 
-    function NewWidgetController($location, $routeParams, WidgetService) {
+    function WidgetNewController($location, $routeParams, WidgetService) {
         var model = this;
         var userId = $routeParams.uid;
         var pageId = $routeParams.pid;
@@ -19,7 +19,7 @@
             };
             WidgetService
                 .createWidget(pageId, n_widget)
-                .success(function (w) {
+                .then(function (w) {
                     $location.url('/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget/' + w._id);
                 });
         }

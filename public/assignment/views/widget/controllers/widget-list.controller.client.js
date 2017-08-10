@@ -1,9 +1,9 @@
 (function () {
     angular
         .module("WebAppMaker")
-        .controller("WidgetListController", widgetListController);
+        .controller("WidgetListController", WidgetListController);
 
-    function widgetListController($routeParams, WidgetService, $sce) {
+    function WidgetListController($routeParams, WidgetService, $sce) {
         var model = this;
         model.getTrustedHtml = getTrustedHtml;
         model.getWidgetTemplateUrl = getWidgetTemplateUrl;
@@ -17,28 +17,12 @@
         function init() {
             WidgetService
                 .findWidgetsByPageId(model.pageId)
-                .success(function (widgets) {
+                .then(function (widgets) {
                     model.widgets = widgets;
                     if (widgets.length === 0) {
                         model.message = "No widgets found!";
                     }
                 });
-            var initialIndex = -1;
-            var finalIndex = -1;
-            $('#widget-list').sortable({
-                axis: "y",
-                initial: function (event, ui) {
-                    initialIndex = ui.item.index();
-                },
-                final: function (event, ui) {
-                    finalIndex = ui.item.index();
-                    WidgetService
-                        .sortWidgetList(model.pageId, initialIndex, finalIndex)
-                        .success(function (widgets) {
-                            console.log("success!")
-                        })
-                }
-            });
         }
 
         init();
