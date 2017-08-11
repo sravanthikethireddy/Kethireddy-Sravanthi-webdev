@@ -8,7 +8,7 @@
         </div>
 
         <div class="navbar-text pull-right">
-            <a class="ngclick" ng-click="model.addnewPage(page)" >
+            <a class="ngclick" ng-click="model.addnewPage(page)">
                 <!--href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">-->
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
@@ -21,11 +21,11 @@
     </div>
 </nav>
 <div class="container-fluid">
-    <div class="col-sm-4 hidden-sm">
+    <!--<div class="col-sm-4 hidden-sm">-->
         <ul class="list-group">
             <!--<li class="list-group-item"><strong>Name</strong></li>-->
             <li class="list-group-item" ng-repeat="page in model.pages">
-                <a href = "#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
                     {{page.name}}
                 </a>
                 <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
@@ -33,20 +33,25 @@
                 </a>
             </li>
         </ul>
+    <!--</div>-->
+    <!--<div>-->
+        <div class="container-fluid">
+
+            <label for="name">Name</label>
+            <input ng-model="page.name"
+                   type="text"
+                   class="form-control"
+                   id="name"
+                   placeholder="Page Name">
+            <label for="title">Title</label>
+            <input ng-model="page.description"
+                   type="text"
+                   class="form-control"
+                   id="title"
+                   placeholder="Page Title">
+        </div>
     </div>
-    <label for="name">Name</label>
-    <input ng-model="page.name"
-           type="text"
-           class="form-control"
-           id="name"
-           placeholder="Page Name">
-    <label for="title">Title</label>
-    <input ng-model="page.description"
-           type="text"
-           class="form-control"
-           id="title"
-           placeholder="Page Title">
-</div>
+<!--</div>-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text pull-right">

@@ -1,1 +1,52 @@
-<div ng-bind-html="model.getTrustedHtml(widget.text)"></div>
+<!--<div ng-bind-html="model.getTrustedHtml(widget.text)"></div>-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+            <div class="navbar-text pull-left">
+                <a class="navbar-link"
+                   href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+          <span class="glyphicon glyphicon-chevron-left black">
+          </span>
+                </a>
+            </div>
+            <a class="navbar-brand">
+                <strong> Widget Edit</strong>
+            </a>
+            <div class="navbar-text pull-right">
+                <a ng-click="model.updateWidget(model.widget)" class="navbar-link">
+          <span class="glyphicon glyphicon-ok black">
+          </span>
+                </a>
+            </div>
+        </div>
+</nav>
+<div class="container-fluid">
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input ng-model="model.widget.name"
+                   type="text"
+                   class="form-control"
+                   id="name"
+                   placeholder="Name">
+        </div>
+        <div  class="form-group"
+                ng-model="model.widget.text"
+             text-angular
+             ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
+        </div>
+    </form>
+
+    <a class="btn btn-block btn-danger"
+       ng-click="model.deleteWidget()">Delete</a>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a href="#!/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user black"></span>
+            </a>
+        </div>
+    </div>
+</nav>

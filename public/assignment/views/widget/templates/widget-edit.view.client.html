@@ -1,32 +1,64 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-text pull-left">
-            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
-                <span class="glyphicon glyphicon-chevron-left black"></span>
-            </a>
-        </div>
-        <div class="navbar-text pull-right">
-            <a ng-click="model.updateWidget(model.widget)">
-                <span class="glyphicon glyphicon-ok black"></span>
-            </a>
-        </div>
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Edit Widget
-            </a>
-        </div>
-    </div>
-</nav>
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+<!--<div class="container-fluid">-->
+<!--<div class="navbar-text pull-left">-->
+<!--<a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">-->
+<!--<span class="glyphicon glyphicon-chevron-left black"></span>-->
+<!--</a>-->
+<!--</div>-->
+<!--<div class="navbar-text pull-right">-->
+<!--<a ng-click="model.updateWidget(model.widget)">-->
+<!--<span class="glyphicon glyphicon-ok black"></span>-->
+<!--</a>-->
+<!--</div>-->
+<!--<div class="navbar-header">-->
+<!--<a class="navbar-brand" href="#">-->
+<!--Edit Widget-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</nav>-->
 
-<div class="container-fluid" ng-include="model.getEditorTemplateUrl(model.widget.type)">
+<!--<div class="container-fluid" ng-include="model.getEditorTemplateUrl(model.widget.type)">-->
+<!--</div>-->
+
+<!--<nav class="navbar navbar-default navbar-fixed-bottom">-->
+<!--<div class="container-fluid">-->
+<!--<div class="navbar-text pull-right">-->
+<!--<a href="#!/user/{{model.userId}}">-->
+<!--<span class="glyphicon glyphicon-user"></span>-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</nav>-->
+<div ng-switch="model.widget.type">
+
+
+    <div ng-switch-when="HEADER">
+        <ng-include src="'/assignment/views/widget/templates/widget-header.view.client.html'">
+
+        </ng-include>
+    </div>
+    <div ng-switch-when="HTML">
+        <ng-include src="'/assignment/views/widget/templates/widget-html.view.client.html'">
+
+        </ng-include>
+    </div>
+    <div ng-switch-when="IMAGE">
+        <ng-include src="'/assignment/views/widget/templates/widget-image.view.client.html'">
+
+        </ng-include>
+    </div>
+
+    <div ng-switch-when="TEXT">
+        <ng-include src="'/assignment/views/widget/templates/widget-text.view.client.html'">
+
+        </ng-include>
+    </div>
+    <div ng-switch-when="YOUTUBE">
+        <ng-include src="'/assignment/views/widget/templates/widget-youtube.view.client.html'">
+
+        </ng-include>
+    </div>
+
+
 </div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-text pull-right">
-            <a href="#!/user/{{model.userId}}">
-                <span class="glyphicon glyphicon-user"></span>
-            </a>
-        </div>
-    </div>
-</nav>

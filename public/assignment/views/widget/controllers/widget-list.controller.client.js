@@ -6,9 +6,8 @@
     function WidgetListController($routeParams, WidgetService, $sce) {
         var model = this;
         model.getTrustedHtml = getTrustedHtml;
-        model.getWidgetTemplateUrl = getWidgetTemplateUrl;
         model.doYouTrustUrl = doYouTrustUrl;
-        var widgets;
+        model.reorderWidget = reorderWidget;
         var websiteId = $routeParams.wid;
         model.userId = $routeParams.uid;
         model.websiteId = websiteId;
@@ -17,11 +16,8 @@
         function init() {
             WidgetService
                 .findWidgetsByPageId(model.pageId)
-                .then(function (widgets) {
-                    model.widgets = widgets;
-                    if (widgets.length === 0) {
-                        model.message = "No widgets found!";
-                    }
+                .then(function (response) {
+                    model.widgets = response.data;
                 });
         }
 
@@ -29,20 +25,24 @@
 
 
         function getTrustedHtml(html) {
-            return $sce.trustAsHtml(html);
+            return $sce.trustAsHtml(html.text);
         }
 
-        function getWidgetTemplateUrl(widgetType) {
-            var url = 'views/widget/templates/widget-' + widgetType + '.view.client.html';
-            return url;
-        }
+
 
         function doYouTrustUrl(url) {
             var baseUrl = "https://www.youtube.com/embed/";
-            var urlParts = url.split('/');
+            var urlParts = url.url.split('/');
             var id = urlParts[urlParts.length - 1];
             baseUrl += id;
             return $sce.trustAsResourceUrl(baseUrl);
+        }
+        function reorderWidget(start, end) {
+            WidgetService
+                .reorderWidget(model.pageId, start, end)
+                .then(function (response) {
+                    init();
+                });
         }
     }
 })();

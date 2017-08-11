@@ -17,39 +17,33 @@
         model.deleteWidget = deleteWidget;
 
         function init() {
-            model.getEditorTemplateUrl = getEditorTemplateUrl;
             WidgetService
                 .findWidgetById(model.widgetId)
                 .then(function (response) {
-                    model.widget = response;
+                    model.widget = response.data;
                 });
         }
 
         init();
 
         function updateWidget(n_widget) {
-            WidgetService
-                .updateWidget(widgetId, n_widget)
-                .then(function (updatedWidget) {
-                    $location.url('/user/' + userId + '/website/' + webSiteId + '/page/' + pageId + '/widget');
+            var value = WidgetService
+                .updateWidget(model.widgetId, n_widget)
+                .then(function (response) {
+                    if (value) {
+                        $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
+                    }
                 });
         }
 
         function deleteWidget() {
-            WidgetService
-                .deleteWidget(widgetId)
-                .then(function () {
-                    $location.url('/user/' + userId + '/website/' + webSiteId + '/page/' + pageId + '/widget');
+            var value = WidgetService
+                .deleteWidget(model.widgetId)
+                .then(function (response) {
+                    if (value) {
+                        $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
+                    }
                 });
-        }
-
-        function getEditorTemplateUrl(type) {
-            if (type === undefined) {
-                console.log("undefined")
-            }
-            else {
-                return 'views/widget/templates/editors/widget-' + type + '-editor.view.client.html';
-            }
         }
     }
 })();

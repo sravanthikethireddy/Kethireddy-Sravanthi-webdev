@@ -16,6 +16,17 @@
         model.searchPhotos = searchPhotos;
         model.selectPhoto = selectPhoto;
 
+        function init() {
+            WidgetService
+                .findWidgetsByPageId(model.pageId)
+                .then(function (response) {
+                    model.widgets = response.data;
+
+                });
+        }
+
+        init();
+
         function searchPhotos(searchTerm) {
             FlickrService
                 .searchPhotos(searchTerm)
@@ -30,23 +41,25 @@
         function selectPhoto(photo) {
             var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
             url += "/" + photo.id + "_" + photo.secret + "_b.jpg";
+            var n_widget = {
+                _id: model.widgetId,
+                pageId: model.pageId,
+                url: url,
+                type: "IMAGE",
+                widgetType: "IMAGE",
+                width: "100%"
+
+            };
             WidgetService
-                .findWidgetById(widgetId)
+                .updateWidget(model.websiteId, n_widget)
                 .then(function (response) {
-                    var updatedWidget = response.data;
-                    updatedWidget.url = url;
-                    WidgetService
-                        .updateWidget(widgetId, updatedWidget)
-                        .then(function (response) {
-                            var update_object = response;
-                            if (update_object) {
-                                $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
-                            }
-                        }, function (error) {
-                            model.error = "Update Failed!";
-                        });
-                }, function (error) {
-                    model.error = "Widget not found!";
+                    var value = response.data;
+                    if (value) {
+                        $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + model.widgetId);
+                    }
+                    else {
+                        model.error = "Error!"
+                    }
                 });
         }
     }

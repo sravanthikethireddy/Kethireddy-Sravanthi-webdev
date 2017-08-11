@@ -13,8 +13,8 @@
             "findWidgetById": findWidgetById,
             "updateWidget": updateWidget,
             "deleteWidget": deleteWidget,
-            "sortWidget": sortWidget
-
+            "sortWidget": sortWidget,
+            "reorderWidget": reorderWidget
 
         };
 
@@ -56,7 +56,12 @@
         function sortWidget(pageId, initial, final) {
             // var url = "/api/page/" + pageId + "/widget?initial=" + initial + "&final=" + final;
             // return $http.put(url);
-            return $http.post('/api/order/' + pageId+'/widget?initial=' + initial + '&final=' + final);
+            return $http.post('/api/order/' + pageId + '/widget?initial=' + initial + '&final=' + final);
+        }
+
+        function reorderWidget(pageId, start, end) {
+            var url = "/page/" + pageId + "/widget?start=" + start + "&end=" + end;
+            return $http.put(url);
         }
 
     }

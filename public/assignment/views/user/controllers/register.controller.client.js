@@ -26,7 +26,7 @@
                 .then(function (user) {
                     // var user = response.data;
                     if(user) {
-                        $location.url("/profile/" + user._id);
+                        $location.url("/user/" + user._id);
                     }
                 });
         }

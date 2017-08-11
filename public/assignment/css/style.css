@@ -35,8 +35,8 @@ input.form-control
     position: absolute;
     background-color: white;
     right: 20px;
-    border-bottom-right-radius:3px ;
-    border-bottom-left-radius: 3px;
+    border-bottom-right-radius:5px ;
+    border-bottom-left-radius: 5px;
 }
 
 .black{

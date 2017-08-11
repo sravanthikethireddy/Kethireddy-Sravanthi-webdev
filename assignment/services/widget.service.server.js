@@ -88,58 +88,12 @@ module.exports = function (app, model) {
         var pageId = req.params.pageId;
         var widget = req.body;
 
-        if (widget.type === "HEADER") {
-            var n_widget = {
-                type: widget.type,
-                pageId: pageId,
-                size: widget.size,
-                text: widget.text
-            };
-        }
-        else if (widget.type === "HTML") {
-            var n_widget = {
-                type: widget.type,
-                pageId: pageId,
-                text: widget.text
-            };
-        }
-        else if (widget.type === "IMAGE") {
-            var n_widget = {
-                type: widget.type,
-                pageId: pageId,
-                width: widget.width,
-                url: widget.url
-            };
 
-        }
-
-        else if (widget.type === "YOUTUBE") {
-            var n_widget = {
-                type: widget.type,
-                pageId: pageId,
-                width: widget.width,
-                url: widget.url
-            };
-
-        }
-
-        else if (widget.type === "TEXT") {
-            var n_widget = {
-                type: widget.type,
-                pageId: pageId,
-                text: widget.text,
-                rows: widget.rows,
-                placeholder: widget.placeholder,
-                formatted: widget.formatted
-            };
-        }
 
         widgetModel
-            .createWidget(pageId, n_widget)
+            .createWidget(pageId,widget)
             .then(function (widget) {
                 res.json(widget);
-            }, function (error) {
-                res.sendStatus(404).send(error);
             });
     }
 
@@ -234,6 +188,7 @@ module.exports = function (app, model) {
     function updateWidget(req, res) {
         var widget = req.body;
         var widgetId = req.params.widgetId;
+        var w_type = widget.widgetType;
         // for (var w in widgets) {
         //     if (widgets[w]._id === widgetId) {
         //         widgets[w] = widgets;
@@ -243,7 +198,7 @@ module.exports = function (app, model) {
         // }
         // res.sendStatus(404);
         widgetModel
-            .updateWidget(widgetId, widget)
+            .updateWidget(w_type, widget)
             .then(function (status) {
                 res.sendStatus(200);
             }, function (error) {
@@ -295,7 +250,7 @@ module.exports = function (app, model) {
     var multer = require('multer'); // npm install multer --save
     var upload = multer({dest: __dirname + '/../../public/uploads'});
 
-    app.post("/api/upload", upload.single('myFile'), uploadImage);
+    app.post("/api/uploads", upload.single('myFile'), uploadImage);
 
     function uploadImage(req, res) {
 
