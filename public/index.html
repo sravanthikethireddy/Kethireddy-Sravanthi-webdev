@@ -1,26 +1,136 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Web Dev Course Home Page</title>-->
+    <!--<script src="vendor/angular/angular.js"></script>-->
+    <!--<script src="vendor/angular/angular-route.js"></script>-->
+<!--</head>-->
+<!--<body  style="background:url('homepage.jpg')no-repeat">-->
+    <!--&lt;!&ndash;<h1>Web Dev Course Home Page</h1>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<p>&ndash;&gt;-->
+        <!--&lt;!&ndash;This is your website's home page. Your home page should have a picture of yourself, link to your assignments,&ndash;&gt;-->
+        <!--&lt;!&ndash;link to your final project implementation on Heroku, link to your GitHub,&ndash;&gt;-->
+        <!--&lt;!&ndash;link to a 5 minute video demoing your project. Your home page should look&ndash;&gt;-->
+        <!--&lt;!&ndash;spectacular. You should feel proud to share your homepage with your potential employer.&ndash;&gt;-->
+        <!--&lt;!&ndash;I should feel proud to share your homepage with my colleagues.&ndash;&gt;-->
+    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<h2>Required links</h2>&ndash;&gt;-->
+    <!--<ul style="padding-top: 10px">-->
+    <!--<select>-->
+        <!--<li>-->
+            <!--<a href="project/public/index.html"><option value = "Project">Project</option></a>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<a href="assignment/index.html"><option value = "Assignment">Assignment</option></a>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<a href="test/index.html"><option value = "MongoDB">Test MongoDB</option></a>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<a href="https://github.com/sravanthikethireddy/Kethireddy-Sravanthi-webdev"><option value = "GitHub">GitHub Link</option></a>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<a href="http://kethireddy-sravanthi-webdev.herokuapp.com/"><option value = "Heroku">Heroku Link</option></a>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<a href="/lectures">Lectures</a>-->
+        <!--</li>-->
+        <!--</select>-->
+    <!--</ul>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
-    <script src="vendor/angular/angular.js"></script>
-    <script src="vendor/angular/angular-route.js"></script>
+    <meta charset="utf-8" />
+    <!--<title>Toolinfy - Flat Bubble Navigation Demo</title>-->
+    <meta name="description" content="jQuery Back to Top link Demo" />
+    <meta name="author" content="Toolinfy.com" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            /*background: violet;*/
+        }
+
+        .bubble-menu {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .bubble-menu ul {
+            list-style: none;
+            list-style-type: none;
+            padding: 0;
+            padding-bottom: 10px;
+            margin: 0 auto;
+            overflow: auto;
+            width: 705px;
+        }
+
+        .bubble-menu li {
+            float: left;
+            margin-right: -10px;
+            margin-top: -50px;
+            -webkit-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .bubble-menu li:hover {
+            margin-top: 0px;
+        }
+
+        .bubble-menu li a {
+            background: orange;
+            font-family: "Montserrat", sans-serif;
+            font-size: 90%;
+            text-decoration: none;
+            color: white;
+            font-weight: normal;
+            text-align: center;
+            display: block;
+            -moz-border-radius: 100%;
+            -webkit-border-radius: 100%;
+            border-radius: 100%;
+            width: 80px;
+            height: 40px;
+            padding: 75px 30px 25px 30px;
+            -webkit-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            -moz-box-shadow: 0px 2px 0px 2px rgba(0, 0, 0, 0.04);
+            -webkit-box-shadow: 0px 2px 0px 2px rgba(0, 0, 0, 0.04);
+            box-shadow: 0px 2px 0px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        .bubble-menu li:hover a {
+            padding: 60px 30px 40px 30px;
+        }
+        .background{
+            background-image: url("giphy.gif");
+            background-size: cover;
+            background-repeat: no-repeat;
+        ;
+        }
+    </style>
+
 </head>
-<body  style="background:url('homepage.jpg')no-repeat">
-    <!--<h1>Web Dev Course Home Page</h1>-->
 
-    <!--<p>-->
-        <!--This is your website's home page. Your home page should have a picture of yourself, link to your assignments,-->
-        <!--link to your final project implementation on Heroku, link to your GitHub,-->
-        <!--link to a 5 minute video demoing your project. Your home page should look-->
-        <!--spectacular. You should feel proud to share your homepage with your potential employer.-->
-        <!--I should feel proud to share your homepage with my colleagues.-->
-    <!--</p>-->
+<body  class="background">
 
-    <!--<h2>Required links</h2>-->
-    <ul style="padding-top: 10px">
+<!--<body style="background:url("")">-->
+<div class="bubble-menu">
+    <ul>
         <li>
-            <a href="project/index.html">Project</a>
+            <a href="project/public/index.html">Project</a>
         </li>
         <li>
             <a href="assignment/index.html">Assignment</a>
@@ -29,14 +139,14 @@
             <a href="test/index.html">Test MongoDB</a>
         </li>
         <li>
-            <a href="https://github.com/sravanthikethireddy/Kethireddy-Sravanthi-webdev">GitHub Link</a>
-        </li>
+            <a href="https://github.com/sravanthikethireddy/Kethireddy-Sravanthi-webdev">GitHub Link</a>        </li>
         <li>
-            <a href="http://kethireddy-sravanthi-webdev.herokuapp.com/">Heroku Link</a>
-        </li>
-        <li>
-            <a href="/lectures">Lectures</a>
-        </li>
+            <a href="http://kethireddy-sravanthi-webdev.herokuapp.com/">Heroku Link</a>        </li>
     </ul>
+</div>
+
+<div ></div>
 </body>
 </html>
+
+

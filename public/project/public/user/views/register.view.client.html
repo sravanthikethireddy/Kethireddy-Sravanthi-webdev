@@ -1,0 +1,129 @@
+<div class="container-fluid">
+    <h2 class="text-center">Register</h2>
+    <div class="required">
+        <label for="username">Username<span class="glyphicon glyphicon-asterisk"></span>
+        </label>
+    </div>
+    <!--<div class="required">-->
+
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+        </div>
+        <input class="form-control"
+               ng-model="user.username"
+               id="username"
+               placeholder="username">
+    </div>
+    <!--</div>-->
+
+    <!--<div class="required">-->
+
+
+    <div class="required">
+
+        <label for="password">Password</label>
+    </div>
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-lock"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+        <input class="form-control"
+               ng-model="user.password"
+               id="password"
+               type="password"
+               placeholder="password">
+    </div>
+    <!--</div>-->
+    <!--<div class="required">-->
+    <div class="required">
+
+        <label for="password_repeat">Re-enter Password</label>
+    </div>
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-lock"><span class="glyphicon glyphicon-asterisk"></span></span>
+        </div>
+        <input ng-model="user.password_repeat"
+               id="password_repeat"
+               class="form-control"
+               type="password"
+               placeholder="Re-enter password"/>
+    </div>
+    <!--</div>-->
+    <div class="required">
+
+        <label for="f_name">First Name</label>
+    </div>
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+        </div>
+        <input class="form-control"
+               type="text"
+               ng-model="user.firstName"
+               id="f_name">
+        <!--</div>-->
+    </div>
+
+    <div class="required">
+
+        <label for="l_name">Last Name</label>
+    </div>
+    <div class="input-group">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+        </div>
+        <input class="form-control"
+               type="text"
+               ng-model="user.lastName"
+               id="l_name">
+    </div>
+    <!--</div>-->
+    <div class="required">
+
+        <label for="email">Email</label>
+    </div>
+    <div class="input-group">
+        <div class="input-group-addon"></div>
+        <input class="form-control"
+               type="email"
+               ng-model="user.email"
+               id="email"
+               placeholder="@email.com">
+    </div>
+    <!--</div>-->
+    <div class="required">
+
+        <label for="userRole">What do you want to be?</label>
+    </div>
+        <select class="custom-select" id="userRole" ng-model="user.role">
+            <option value="ADMIN">Admin</option>
+            <option value="ARTIST">Artist</option>
+            <option selected value="USER">User</option>
+        </select>
+    <!--</div>-->
+    <div class="required">
+
+        <label for="id_name">Mozzie Name</label>
+    </div>
+        <div class="input-group" ng-show="user.role=='ARTIST'">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-user"></span></div>
+            <input class="form-control"
+                   type="text"
+                   ng-model="user.mozzieId"
+                   id="id_name"
+                   placeholder="">
+        </div>
+    <!--</div>-->
+    <a ng-click="model.register(user)" class="btn btn-primary">Register</a>
+    <a href="#!/login" class="btn btn-danger">Cancel</a>
+</div>
+
+
+<style>
+    .required:after {
+        content: "*";
+    }
+</style>​
